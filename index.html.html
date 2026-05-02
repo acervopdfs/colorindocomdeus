@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colorindo com Deus</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+font-family:'Nunito',sans-serif;
+background:#f4f8ff;
+color:#1a2340;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+}
+
+/* HERO */
+.hero{
+background:linear-gradient(180deg,#123a80,#0a2a5c);
+text-align:center;
+padding:64px 20px 72px;
+color:#fff;
+}
+
+.badge{
+background:rgba(255,255,255,0.12);
+border:1px solid #f5c518;
+padding:8px 16px;
+border-radius:20px;
+font-size:13px;
+margin-bottom:32px;
+display:inline-block;
+}
+
+h1{
+font-family:'Fredoka';
+font-size:34px;
+line-height:1.2;
+margin-bottom:10px;
+}
+
+h1 span{ color:#ffd84d; }
+
+.sub{
+opacity:.9;
+font-size:16px;
+margin-bottom:44px;
+}
+
+.hero-flex{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:50px;
+flex-wrap:wrap;
+}
+
+.product img{
+max-width:320px;
+border-radius:18px;
+box-shadow:0 25px 50px rgba(0,0,0,.4);
+}
+
+/* CTA */
+.cta-box{
+text-align:center;
+max-width:300px;
+}
+
+.cta{
+background:linear-gradient(90deg,#ff3b2f,#ff5a3d);
+color:#fff;
+font-weight:800;
+font-size:20px;
+padding:18px 30px;
+border-radius:50px;
+display:inline-block;
+text-decoration:none;
+box-shadow:0 15px 35px rgba(255,0,0,.5);
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+50%{transform:scale(1.08);}
+}
+
+/* PREÇO */
+.price{
+margin-top:14px;
+font-size:14px;
+}
+
+.price strong{
+color:#00e676;
+font-size:28px;
+display:block;
+margin-top:4px;
+}
+
+.price span{
+font-size:13px;
+color:#cfd8dc;
+}
+
+/* TIMER */
+.timer{
+margin-top:12px;
+font-weight:800;
+font-size:14px;
+background:#ff3b2f;
+padding:10px;
+border-radius:10px;
+display:inline-block;
+animation:blink 1s infinite;
+}
+
+.timer span{
+font-size:18px;
+}
+
+@keyframes blink{
+50%{opacity:0.7;}
+}
+
+/* SECTIONS */
+section{
+padding:50px 20px;
+text-align:center;
+}
+
+h2{
+font-family:'Fredoka';
+font-size:26px;
+margin-top:0;
+margin-bottom:28px;
+line-height:1.3;
+}
+
+.benefits{
+max-width:420px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:16px;
+}
+
+.benefit{
+background:#fff;
+padding:18px 20px;
+border-radius:14px;
+box-shadow:0 6px 18px rgba(0,0,0,.06);
+font-weight:600;
+line-height:1.5;
+}
+
+/* CARROSSEL */
+.carousel{
+max-width:330px;
+margin:36px auto;
+overflow:hidden;
+}
+
+.track{
+display:flex;
+transition:.5s;
+}
+
+.dm{
+min-width:100%;
+display:flex;
+justify-content:center;
+}
+
+.phone{
+width:290px;
+background:#fff;
+border-radius:22px;
+box-shadow:0 12px 35px rgba(0,0,0,0.2);
+overflow:hidden;
+}
+
+.top{
+display:flex;
+align-items:center;
+padding:12px;
+border-bottom:1px solid #eee;
+}
+
+.top img{
+width:36px;
+height:36px;
+border-radius:50%;
+margin-right:10px;
+}
+
+.body{
+padding:12px;
+font-size:14px;
+}
+
+.story-img{
+width:100px;
+border-radius:12px;
+margin:8px 0;
+}
+
+.msg{
+background:#f3f4f6;
+padding:12px;
+border-radius:16px;
+}
+
+/* GARANTIA */
+.guarantee{
+border:2px dashed #1a4fa0;
+padding: 26px 22px;
+margin-top: 20px;
+border-radius:16px;
+background:#fff;
+max-width:420px;
+margin:auto;
+text-align:center;
+line-height:1.7;
+}
+
+/* ICONES */
+.icons-grid{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+padding:30px 0;
+}
+
+.icon{
+font-size:28px;
+background:#fff;
+padding:12px;
+border-radius:12px;
+box-shadow:0 4px 12px rgba(0,0,0,0.08);
+margin-bottom:6px;
+}
+
+/* WHATS */
+.whatsapp{
+background:#25d366;
+color:#fff;
+padding:15px 26px;
+border-radius:30px;
+text-decoration:none;
+display:inline-block;
+margin-top:20px;
+font-weight:700;
+}
+
+/* PRODUTO */
+.product-reveal{
+  background: linear-gradient(160deg, #e8f0ff, #f4f8ff);
+  border-top: 3px solid #d0e0ff;
+  border-bottom: 3px solid #d0e0ff;
+  padding: 60px 20px;
+}
+.product-tag{
+  display:inline-block;
+  background: #1a4fa0;
+  color:#fff;
+  font-size:13px;
+  font-weight:700;
+  padding:6px 16px;
+  border-radius:20px;
+  margin-bottom:24px;
+  letter-spacing:.5px;
+}
+.product-desc{
+  max-width:500px;
+  margin:0 auto 36px;
+  font-size:16px;
+  line-height:1.7;
+  color:#2a3a5c;
+}
+.product-features{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  max-width:480px;
+  margin:0 auto;
+  text-align:left;
+}
+.pf-card{
+  background:#fff;
+  border-radius:16px;
+  padding:16px 20px;
+  display:flex;
+  align-items:flex-start;
+  gap:16px;
+  box-shadow:0 6px 20px rgba(26,79,160,0.09);
+  border-left:4px solid #ffd84d;
+}
+.pf-icon{
+  font-size:26px;
+  line-height:1;
+  flex-shrink:0;
+  margin-top:2px;
+}
+.pf-card strong{
+  display:block;
+  font-size:15px;
+  color:#1a2340;
+  margin-bottom:3px;
+}
+.pf-card p{
+  margin:0;
+  font-size:13px;
+  color:#5a6a8a;
+  line-height:1.5;
+}
+
+/* PRÉVIA DOS DESENHOS */
+.preview-section{
+  background:#f4f8ff;
+  padding:60px 20px;
+  text-align:center;
+}
+.preview-sub{
+  color:#5a6a8a;
+  font-size:14px;
+  margin-top:-16px;
+  margin-bottom:32px;
+  line-height:1.6;
+}
+
+.preview-wrapper{
+  position:relative;
+  max-width:320px;
+  margin:auto;
+}
+
+.preview-carousel-container {
+  overflow:hidden;
+  border-radius: 8px;
+  box-shadow:0 12px 35px rgba(0,0,0,0.1);
+}
+
+.preview-carousel{
+  display:flex;
+  transition: transform 0.4s ease;
+}
+
+.preview-slide{
+  min-width:100%;
+}
+
+.preview-slide img{
+  width:100%;
+  aspect-ratio:3/4;
+  object-fit:contain;
+  background:#fff;
+  display:block;
+}
+
+.preview-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:#fff;
+  border:none;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  box-shadow:0 5px 15px rgba(0,0,0,0.2);
+  cursor:pointer;
+  font-size:20px;
+  z-index:2;
+}
+
+.preview-btn.left{ left:-20px; }
+.preview-btn.right{ right:-20px; }
+
+/* Pontinhos da Prévia */
+.preview-dots{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  margin-top:20px;
+}
+.preview-dot{
+  width:10px;height:10px;
+  border-radius:50%;
+  background:#c8d4e8;
+  cursor:pointer;
+  transition:background .3s, transform .3s;
+}
+.preview-dot.active{
+  background:#1a4fa0;
+  transform:scale(1.25);
+}
+
+/* FEEDBACK DM */
+.dm-section{ background:#f4f8ff; padding: 60px 20px; }
+
+.dm-carousel-wrap{
+  position:relative;
+  max-width:340px;
+  margin:0 auto;
+  overflow:hidden;
+}
+
+.dm-carousel{
+  display:flex;
+  transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+  cursor:grab;
+  user-select:none;
+}
+
+.dm-carousel:active{ cursor:grabbing; }
+
+.ig-dm{
+  min-width:100%;
+  background:#fff;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 4px 20px rgba(0,0,0,0.10);
+  font-family:'Nunito',sans-serif;
+}
+
+.ig-dm-header{
+  display:flex;align-items:center;
+  padding:12px 14px;
+  border-bottom:1px solid #f0f0f0;
+  gap:10px;
+}
+.ig-avatar-wrap{ position:relative;flex-shrink:0; }
+.ig-avatar{ width:38px;height:38px;border-radius:50%;display:block; }
+.ig-online{ position:absolute;bottom:1px;right:1px;width:10px;height:10px;background:#4ade80;border-radius:50%;border:2px solid #fff; }
+.ig-user-info{ display:flex;flex-direction:column;line-height:1.3; }
+.ig-user-info strong{ font-size:14px;color:#111; }
+.ig-user-info span{ font-size:11px;color:#888; }
+.ig-dm-body{ padding:14px 16px 14px; }
+.ig-time{ text-align:center;font-size:11px;color:#aaa;margin-bottom:10px; }
+.ig-story-reply{ display:flex;flex-direction:column;margin-bottom:8px; }
+.ig-story-label{ font-size:11px;color:#aaa;margin-bottom:4px; }
+.ig-story-thumb{ width:72px;border-radius:10px;opacity:.85; }
+.ig-bubble-wrap{ display:flex;align-items:flex-end;gap:8px; }
+.ig-bubble-avatar{ width:26px;height:26px;border-radius:50%;flex-shrink:0;margin-bottom:2px; }
+.ig-bubble{ background:#f3f4f6;border-radius:20px 20px 20px 4px;padding:11px 14px;font-size:13px;color:#111;line-height:1.5;max-width:calc(100% - 40px);text-align:left; }
+.ig-heart{ font-size:14px;margin-top:6px;margin-left:36px;opacity:.9; }
+
+/* Dots Feedback */
+.dm-dots{
+  display:flex;
+  justify-content:center;
+  gap:6px;
+  margin-top:20px;
+}
+.dm-dot{
+  width:7px;height:7px;
+  border-radius:50%;
+  background:#c8d4e8;
+  transition:background .3s, transform .3s;
+}
+.dm-dot.active{
+  background:#1a4fa0;
+  transform:scale(1.25);
+}
+
+/* BARRA DE CONFIANÇA */
+.trust-bar{
+  background:#fff;
+  padding:40px 20px;
+  border-top:1px solid #eef0f5;
+  border-bottom:1px solid #eef0f5;
+}
+.trust-grid{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+  max-width:560px;
+  margin:0 auto;
+}
+.trust-item{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+  width:110px;
+}
+.trust-icon{
+  width:48px;
+  height:48px;
+  background:#f0f4fb;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#1a4fa0;
+}
+.trust-icon svg{
+  width:22px;
+  height:22px;
+}
+.trust-item span{
+  font-size:12px;
+  font-weight:700;
+  color:#2a3a5c;
+  text-align:center;
+  line-height:1.3;
+}
+
+section:last-of-type {
+padding-top: 30px;
+}
+
+/* FIXED CTA MOBILE */
+.fixed-cta{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+background:#ffffff;
+padding:15px 0;
+box-sizing:border-box;
+display:none;
+box-shadow:0 -4px 15px rgba(0,0,0,0.1);
+z-index:999;
+text-align:center;
+}
+.fixed-cta a{
+display:inline-block;
+width:90%;
+max-width:400px;
+box-sizing:border-box;
+font-size:16px;
+padding:15px 20px;
+margin:0 auto;
+}
+@media(max-width:768px){
+.fixed-cta{
+display:flex;
+justify-content:center;
+}
+body{
+padding-bottom:80px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+<div class="container">
+
+<div class="badge">⭐⭐⭐⭐⭐ +537 famílias, pais e professores aprovaram</div>
+
+<h1>
+Seu filho só quer celular…<br>
+<span>e você já não aguenta mais isso?</span>
+</h1>
+
+<p class="sub">
+Existe uma forma simples de prender a atenção dele — sem tela, sem briga — enquanto aprende valores de Deus todos os dias.
+</p>
+
+<div class="hero-flex">
+
+<div class="product">
+<img src="CRIATIVO.png">
+</div>
+
+<div class="cta-box">
+
+<a href="[INSERIR LINK REAL AQUI]" class="cta" target="_blank">🙏 Quero meu filho longe do celular</a>
+
+<div class="price">
+De <del>R$29,90</del>
+<strong>por R$9,90</strong>
+<span>Acesso imediato — baixe agora e imprima 🖨️</span>
+</div>
+
+<div class="timer">
+⏰ Oferta especial por tempo limitado: <span id="countdown">60:00</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+<!-- 🔥 SEÇÃO OTIMIZADA -->
+<section>
+<h2>Seja sincero… isso acontece aí na sua casa?</h2>
+
+<div class="benefits">
+<div class="benefit">📱 A criança só quer saber de celular o tempo todo</div>
+<div class="benefit">😤 Tirar o celular vira estresse e discussão</div>
+<div class="benefit">💔 Você sente que estão se afastando cada vez mais</div>
+</div>
+
+<p style="margin-top:28px;margin-bottom:28px;font-size:15px;color:#5a6a8a;max-width:380px;margin-left:auto;margin-right:auto;line-height:1.6;">
+Se nada mudar, isso só tende a piorar com o tempo. Mas existe uma saída simples.
+</p>
+
+<a href="[INSERIR LINK REAL AQUI]" class="cta" target="_blank" style="font-size:16px;padding:15px 26px;">✝️ Quero ensinar meu filho sobre Deus agora</a>
+</section>
+
+<section style="padding-bottom:60px;">
+<h2>E se existisse uma forma simples de mudar isso?</h2>
+
+<div class="benefits">
+<div class="benefit">🎨 Prende a atenção por horas — sem tela, sem briga, sem estresse</div>
+<div class="benefit">❤️ Seu filho aprende sobre Deus enquanto se diverte — sem nem perceber</div>
+<div class="benefit">👨‍👩‍👦 Cria momentos reais entre pais, responsáveis e crianças</div>
+</div>
+</section>
+
+<!-- APRESENTAÇÃO DO PRODUTO -->
+<section class="product-reveal">
+<div class="container">
+  <div class="product-tag">✨ Conheça o produto</div>
+  <h2 style="font-size:28px;">Colorindo com Deus 🎨✝️</h2>
+  <p class="product-desc">
+    Um livro de colorir com ilustrações <strong>fofas e cheias de personalidade</strong> — estilo moderno, personagens expressivos e detalhes encantadores. Perfeito para usar em casa, no carro ou na <strong>escola dominical</strong>.
+  </p>
+
+  <div class="product-features">
+    <div class="pf-card">
+      <div class="pf-icon">🖍️</div>
+      <div>
+        <strong>Ideal para crianças de 3 a 10 anos</strong>
+        <p>Ilustrações com traços simples e divertidos — conteúdo bíblico pensado especialmente para crianças</p>
+      </div>
+    </div>
+    <div class="pf-card">
+      <div class="pf-icon">📖</div>
+      <div>
+        <strong>Versículos em cada página</strong>
+        <p>Cada desenho vem acompanhado de um versículo bíblico simples e marcante</p>
+      </div>
+    </div>
+    <div class="pf-card">
+      <div class="pf-icon">🎀</div>
+      <div>
+        <strong>Estilo moderno, fofo e encantador</strong>
+        <p>Personagens expressivos com muito charme — as crianças se apaixonam na primeira página</p>
+      </div>
+    </div>
+    <div class="pf-card">
+      <div class="pf-icon">📲</div>
+      <div>
+        <strong>Digital — acesso imediato</strong>
+        <p>Baixe agora, imprima quantas vezes quiser e use em casa, no carro ou na escola dominical</p>
+      </div>
+    </div>
+  </div>
+
+  <a href="[INSERIR LINK REAL AQUI]" class="cta" target="_blank" style="margin-top:40px;display:inline-block;">🔥 Quero o livro por R$9,90 agora</a>
+</div>
+</section>
+
+<!-- PRÉVIA DOS DESENHOS -->
+<section class="preview-section">
+  <h2>Veja como são os desenhos por dentro 👇</h2>
+  <p class="preview-sub">
+    Páginas simples, bonitas e pensadas para prender a atenção da criança
+  </p>
+
+  <div class="preview-wrapper">
+    <button class="preview-btn left" id="previewPrev">&#10094;</button>
+
+    <div class="preview-carousel-container">
+      <div class="preview-carousel" id="previewCarousel">
+
+        <div class="preview-slide">
+          <img src="adao-eva.jpg" alt="Adão e Eva">
+        </div>
+
+        <div class="preview-slide">
+          <img src="arca-noe.jpg" alt="Arca de Noé">
+        </div>
+
+        <div class="preview-slide">
+          <img src="moises-mar.jpg" alt="Moisés e o Mar Vermelho">
+        </div>
+
+      </div>
+    </div>
+
+    <button class="preview-btn right" id="previewNext">&#10095;</button>
+
+    <div class="preview-dots" id="previewDots">
+      <span class="preview-dot active"></span>
+      <span class="preview-dot"></span>
+      <span class="preview-dot"></span>
+    </div>
+
+  </div>
+</section>
+
+<!-- SCRIPT DO CARROSSEL DE PRÉVIA -->
+<script>
+(function(){
+  const car = document.getElementById('previewCarousel');
+  const dots = document.querySelectorAll('#previewDots .preview-dot');
+  const btnPrev = document.getElementById('previewPrev');
+  const btnNext = document.getElementById('previewNext');
+  const total = 3;
+  let cur = 0, startX = 0, isDragging = false, dragDelta = 0;
+  let autoPlayInterval;
+
+  function goTo(idx){
+    cur = (idx + total) % total; 
+    car.style.transform = 'translateX(-' + (cur * 100) + '%)';
+    dots.forEach((d,i) => d.classList.toggle('active', i === cur));
+  }
+
+  function startAutoPlay() {
+    autoPlayInterval = setInterval(() => {
+      goTo(cur + 1);
+    }, 3500); 
+  }
+
+  function resetAutoPlay() {
+    clearInterval(autoPlayInterval);
+    startAutoPlay();
+  }
+
+  btnPrev.addEventListener('click', () => { goTo(cur - 1); resetAutoPlay(); });
+  btnNext.addEventListener('click', () => { goTo(cur + 1); resetAutoPlay(); });
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => { goTo(index); resetAutoPlay(); });
+  });
+
+  car.addEventListener('touchstart', e => { 
+    startX = e.touches[0].clientX; 
+    clearInterval(autoPlayInterval); 
+  }, {passive:true});
+  
+  car.addEventListener('touchend', e => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if(Math.abs(diff) > 40) goTo(diff > 0 ? cur+1 : cur-1);
+    startAutoPlay(); 
+  });
+
+  car.addEventListener('mousedown', e => { 
+    isDragging=true; 
+    startX=e.clientX; 
+    car.style.transition='none'; 
+    clearInterval(autoPlayInterval); 
+  });
+  window.addEventListener('mousemove', e => { 
+    if(!isDragging) return; 
+    dragDelta = startX - e.clientX; 
+  });
+  window.addEventListener('mouseup', () => {
+    if(!isDragging) return;
+    isDragging=false;
+    car.style.transition='transform 0.4s ease';
+    if(Math.abs(dragDelta) > 40) goTo(dragDelta > 0 ? cur+1 : cur-1);
+    else goTo(cur);
+    dragDelta=0;
+    startAutoPlay();
+  });
+
+  startAutoPlay();
+})();
+</script>
+
+<!-- FEEDBACK -->
+<section class="dm-section">
+<h2>Veja o que estão dizendo 👇</h2>
+<p style="color:#5a6a8a;margin-top:-10px;margin-bottom:36px;font-size:14px;">Mensagens reais de pais, mães e professores que viram o story</p>
+
+<div class="dm-carousel-wrap" style="position:relative;">
+  <div class="dm-carousel" id="dmCarousel">
+
+    <!-- DM 1 -->
+    <div class="ig-dm">
+      <div class="ig-dm-header">
+        <div class="ig-avatar-wrap"><img src="https://i.pravatar.cc/40?img=47" class="ig-avatar"><span class="ig-online"></span></div>
+        <div class="ig-user-info"><strong>Ana Paula Silva</strong><span>online agora</span></div>
+      </div>
+      <div class="ig-dm-body">
+        <div class="ig-time">Hoje 10:42</div>
+        <div class="ig-story-reply">
+          <span class="ig-story-label">Respondeu ao seu story</span>
+          <img src="CRIATIVO.png" class="ig-story-thumb">
+        </div>
+        <div class="ig-bubble-wrap">
+          <img src="https://i.pravatar.cc/28?img=47" class="ig-bubble-avatar">
+          <div class="ig-bubble">Oii, vi seu story agora 😱<br>meu filho tá VICIADO no celular, sério...<br>comprei e ele ficou a tarde toda colorindo, não acreditei!</div>
+        </div>
+        <div class="ig-heart">❤️</div>
+      </div>
+    </div>
+
+    <!-- DM 2 -->
+    <div class="ig-dm">
+      <div class="ig-dm-header">
+        <div class="ig-avatar-wrap"><img src="https://i.pravatar.cc/40?img=32" class="ig-avatar"><span class="ig-online"></span></div>
+        <div class="ig-user-info"><strong>Juliana Mendes</strong><span>Online agora</span></div>
+      </div>
+      <div class="ig-dm-body">
+        <div class="ig-time">Hoje 11:15</div>
+        <div class="ig-bubble-wrap">
+          <img src="https://i.pravatar.cc/28?img=32" class="ig-bubble-avatar">
+          <div class="ig-bubble">Amg, isso é MUITO bom!!<br><br>minha filha largou o celular e ficou horas colorindo. Ela ainda leu os versículos pra mim 😭🙏<br><br>melhor R$9,90 que já gastei!!</div>
+        </div>
+        <div class="ig-heart">❤️</div>
+      </div>
+    </div>
+
+    <!-- DM 3 -->
+    <div class="ig-dm">
+      <div class="ig-dm-header">
+        <div class="ig-avatar-wrap"><img src="https://i.pravatar.cc/40?img=20" class="ig-avatar"><span class="ig-online"></span></div>
+        <div class="ig-user-info"><strong>Carla Oliveira</strong><span>online agora</span></div>
+      </div>
+      <div class="ig-dm-body">
+        <div class="ig-time">Hoje 09:48</div>
+        <div class="ig-bubble-wrap">
+          <img src="https://i.pravatar.cc/28?img=20" class="ig-bubble-avatar">
+          <div class="ig-bubble">Usei na escola dominical e as crianças AMARAM 😍<br><br>ficaram super envolvidas, cada um queria colorir o seu<br><br>já mandei pra todas as mães da turma!</div>
+        </div>
+        <div class="ig-heart">❤️</div>
+      </div>
+    </div>
+
+    <!-- DM 4 - PAI -->
+    <div class="ig-dm">
+      <div class="ig-dm-header">
+        <div class="ig-avatar-wrap"><img src="https://i.pravatar.cc/40?img=68" class="ig-avatar"><span class="ig-online"></span></div>
+        <div class="ig-user-info"><strong>Ricardo Alves</strong><span>online agora</span></div>
+      </div>
+      <div class="ig-dm-body">
+        <div class="ig-time">Hoje 12:02</div>
+        <div class="ig-bubble-wrap">
+          <img src="https://i.pravatar.cc/28?img=68" class="ig-bubble-avatar">
+          <div class="ig-bubble">Cara, comprei pra minha filha e não esperava que ia funcionar tanto 👀<br><br>ela ficou a tarde inteira colorindo e ainda ficou me perguntando sobre os versículos<br><br>como pai, isso me deixou muito feliz 🙏</div>
+        </div>
+        <div class="ig-heart">❤️</div>
+      </div>
+    </div>
+
+    <!-- DM 5 -->
+    <div class="ig-dm">
+      <div class="ig-dm-header">
+        <div class="ig-avatar-wrap"><img src="https://i.pravatar.cc/40?img=9" class="ig-avatar"><span class="ig-online"></span></div>
+        <div class="ig-user-info"><strong>Letícia Santos</strong><span>online agora</span></div>
+      </div>
+      <div class="ig-dm-body">
+        <div class="ig-time">Hoje 13:27</div>
+        <div class="ig-bubble-wrap">
+          <img src="https://i.pravatar.cc/28?img=9" class="ig-bubble-avatar">
+          <div class="ig-bubble">Comprei!! 😍<br>sério, foi a melhor coisa que fiz<br><br>minha filha ficou mó tempão colorindo e nem pediu celular hoje — e ainda ficou repetindo o versículo 🙏❤️</div>
+        </div>
+        <div class="ig-heart">❤️</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Dots do Feedback -->
+  <div class="dm-dots" id="dmDots">
+    <span class="dm-dot active"></span>
+    <span class="dm-dot"></span>
+    <span class="dm-dot"></span>
+    <span class="dm-dot"></span>
+    <span class="dm-dot"></span>
+  </div>
+</div>
+
+<div style="margin-top:44px;">
+  <a href="[INSERIR LINK REAL AQUI]" class="cta" target="_blank">🙏 Quero meu filho longe do celular</a>
+</div>
+
+</section>
+
+<!-- SCRIPT DO CARROSSEL DE FEEDBACK -->
+<script>
+(function(){
+  const carousel = document.getElementById('dmCarousel');
+  const dots = document.querySelectorAll('#dmDots .dm-dot');
+  const total = 5;
+  let current = 0;
+  let startX = 0;
+  let isDragging = false;
+  let dragDelta = 0;
+
+  function goTo(idx){
+    current = (idx + total) % total;
+    carousel.style.transform = 'translateX(-' + (current * 100) + '%)';
+    dots.forEach((d,i) => d.classList.toggle('active', i === current));
+  }
+
+  // Touch
+  carousel.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, {passive:true});
+  carousel.addEventListener('touchend', e => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if(Math.abs(diff) > 40) goTo(diff > 0 ? current+1 : current-1);
+  });
+
+  // Mouse drag
+  carousel.addEventListener('mousedown', e => { isDragging=true; startX=e.clientX; carousel.style.transition='none'; });
+  window.addEventListener('mousemove', e => {
+    if(!isDragging) return;
+    dragDelta = startX - e.clientX;
+  });
+  window.addEventListener('mouseup', () => {
+    if(!isDragging) return;
+    isDragging=false;
+    carousel.style.transition='transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94)';
+    if(Math.abs(dragDelta) > 40) goTo(dragDelta > 0 ? current+1 : current-1);
+    else goTo(current);
+    dragDelta=0;
+  });
+
+  // Auto-play
+  setInterval(() => goTo(current+1), 4000);
+})();
+</script>
+
+<!-- GARANTIA -->
+<section style="padding-top:36px;">
+<div class="guarantee">
+<h3>🛡️ Garantia de 7 dias — sem risco</h3>
+<p>Teste hoje mesmo. Se não gostar, devolvemos 100% do seu dinheiro. Sem risco.</p>
+</div>
+</section>
+
+<!-- ICONES -->
+<section class="trust-bar">
+<div class="trust-grid">
+
+  <div class="trust-item">
+    <div class="trust-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      </svg>
+    </div>
+    <span>Compra Segura</span>
+  </div>
+
+  <div class="trust-item">
+    <div class="trust-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <polyline points="12 6 12 12 16 14"/>
+      </svg>
+    </div>
+    <span>Acesso Imediato</span>
+  </div>
+
+  <div class="trust-item">
+    <div class="trust-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="5" y="2" width="14" height="20" rx="2"/>
+        <line x1="9" y1="7" x2="15" y2="7"/>
+        <line x1="9" y1="11" x2="15" y2="11"/>
+        <line x1="9" y1="15" x2="12" y2="15"/>
+      </svg>
+    </div>
+    <span>100% Digital</span>
+  </div>
+
+  <div class="trust-item">
+    <div class="trust-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 6 2 18 2 18 9"/>
+        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+        <rect x="6" y="14" width="12" height="8"/>
+      </svg>
+    </div>
+    <span>Baixe e Imprima</span>
+  </div>
+
+</div>
+</section>
+
+<!-- NOVO BLOCO CTA -->
+<section>
+  <h2>Seu filho merece mais do que uma tela</h2>
+  <a href="[INSERIR LINK REAL AQUI]" class="cta" target="_blank">🔥 Garantir acesso agora por R$9,90</a>
+</section>
+
+<!-- WHATS -->
+<section style="padding-bottom:60px;">
+<h2>Ficou com dúvidas?</h2>
+<a href="[INSERIR LINK REAL AQUI]" class="whatsapp">💬 Fale comigo no WhatsApp</a>
+</section>
+
+<div class="fixed-cta">
+  <a href="[INSERIR LINK REAL AQUI]" class="cta" target="_blank">🙏 Quero meu filho longe do celular</a>
+</div>
+
+<script>
+let tempo=3600;
+setInterval(()=>{
+let m=Math.floor(tempo/60);
+let s=tempo%60;
+document.getElementById("countdown").innerHTML=
+String(m).padStart(2,'0')+":"+String(s).padStart(2,'0');
+if(tempo>0) tempo--;
+},1000);
+</script>
+
+</body>
+</html>
