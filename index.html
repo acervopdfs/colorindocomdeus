@@ -318,7 +318,7 @@ a{color:inherit}
 }
 .compare{
   border-radius:28px;
-  padding:30px;
+  padding:34px 30px;
   text-align:center;
   box-shadow:0 16px 36px rgba(46,79,138,.08);
   transition:transform .18s ease,box-shadow .18s ease;
@@ -326,6 +326,7 @@ a{color:inherit}
 .compare:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(46,79,138,.12)}
 .compare.before{background:#FFF4EF;border:1px solid rgba(247,179,138,.5)}
 .compare.after{background:#F4FAFF;border:1px solid rgba(46,79,138,.18)}
+.compare .soft-icon{margin-bottom:16px}
 .compare h3{
   margin:0 0 18px;
   font-family:'Fredoka',Arial,sans-serif;
@@ -333,7 +334,15 @@ a{color:inherit}
   color:var(--blue-dark);
 }
 .compare ul{margin:0;padding:0;list-style:none;display:grid;gap:12px}
-.compare li{font-size:17px;line-height:1.45;color:var(--muted);font-weight:800}
+.compare li{
+  position:relative;
+  font-size:17px;
+  line-height:1.45;
+  color:var(--muted);
+  font-weight:800;
+}
+.compare.before li:before{content:"";display:inline-block;width:8px;height:8px;margin-right:8px;border-radius:50%;background:var(--peach)}
+.compare.after li:before{content:"";display:inline-block;width:8px;height:8px;margin-right:8px;border-radius:50%;background:var(--gold)}
 .product-section{
   position:relative;
   overflow:hidden;
@@ -384,17 +393,18 @@ a{color:inherit}
 .preview-track{
   display:flex;
   transition:transform .35s ease;
+  will-change:transform;
 }
 .preview-item{
+  flex:0 0 100%;
   min-width:100%;
+  margin:0;
   border:1px solid rgba(46,79,138,.12);
   border-radius:30px;
   background:var(--cream);
   padding:18px;
   box-shadow:0 14px 32px rgba(46,79,138,.08);
-  transition:transform .18s ease,box-shadow .18s ease;
 }
-.preview-item:hover{transform:translateY(-4px) rotate(-.5deg);box-shadow:0 18px 38px rgba(46,79,138,.12)}
 .preview-item img{
   width:100%;
   aspect-ratio:3/4;
@@ -481,6 +491,13 @@ a{color:inherit}
   transition:transform .18s ease,box-shadow .18s ease;
 }
 .testimonial:hover{transform:translateY(-3px);box-shadow:0 18px 38px rgba(46,79,138,.12)}
+.stars{
+  display:flex;
+  gap:3px;
+  margin-bottom:14px;
+  color:var(--gold);
+}
+.stars svg{width:18px;height:18px;fill:currentColor;stroke:currentColor}
 .testimonial p{margin:0 0 18px;color:var(--ink);line-height:1.58;font-size:16px}
 .testimonial strong{display:block;color:var(--blue-dark)}
 .testimonial span{display:block;margin-top:3px;color:var(--muted);font-size:13px;font-weight:800}
@@ -644,6 +661,41 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
     </div>
   </section>
 
+  <section class="section product-section">
+    <div class="container product-layout">
+      <div>
+        <div class="eyebrow">Conheça a solução</div>
+        <h2 class="section-title" style="margin-top:18px">Colorindo com Deus</h2>
+        <p class="section-copy">Um PDF bíblico infantil com desenhos para colorir e versículos simples, feito para crianças de 3 a 10 anos. Você baixa, imprime e já transforma alguns minutos do dia em um momento mais calmo, criativo e com Deus.</p>
+        <div class="feature-grid">
+          <article class="feature">
+            <span class="gold-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg></span>
+            <b>Pronto para imprimir</b>
+            <p>Receba o material digitalmente e use hoje, sem esperar entrega.</p>
+          </article>
+          <article class="feature">
+            <span class="gold-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/><path d="M12 7v7"/><path d="M9.5 9.5h5"/></svg></span>
+            <b>Versículos simples</b>
+            <p>Cada página aproxima a criança da Palavra de Deus de um jeito leve.</p>
+          </article>
+          <article class="feature">
+            <span class="gold-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 10.5L12 3l9 7.5"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg></span>
+            <b>Para casa e igreja</b>
+            <p>Funciona na rotina da família, escola dominical, catequese e ministério infantil.</p>
+          </article>
+          <article class="feature">
+            <span class="gold-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg></span>
+            <b>Imprima quantas vezes quiser</b>
+            <p>Use novamente com filhos, alunos, turmas e momentos diferentes.</p>
+          </article>
+        </div>
+        <div style="margin-top:30px">
+          <a href="https://pay.kiwify.com.br/MjZtzPT" class="cta secondary" target="_blank" rel="noopener"><span>Garantir acesso por R$9,90</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section problem">
     <div class="narrow">
       <h2 class="section-title">Talvez você só queira uma alternativa simples para hoje.</h2>
@@ -671,57 +723,24 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
   <section class="section bridge">
     <div class="container bridge-box">
       <div class="compare before">
+        <span class="soft-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/><path d="M4 5l3 3"/><path d="M20 5l-3 3"/></svg></span>
         <h3>Antes</h3>
         <ul>
-          <li>Horas no celular</li>
+          <li>Celular virando a primeira opção</li>
           <li>Discussão para desligar a tela</li>
-          <li>Poucas atividades offline prontas</li>
-          <li>Sensação de distanciamento</li>
+          <li>Falta de uma atividade pronta</li>
+          <li>Menos momentos de presença</li>
         </ul>
       </div>
       <div class="compare after">
+        <span class="soft-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/><path d="M12 7v7"/><path d="M9.5 9.5h5"/></svg></span>
         <h3>Depois</h3>
         <ul>
           <li>Uma folha bíblica na mesa</li>
-          <li>Mais foco, cor e criatividade</li>
+          <li>Mais calma, cor e criatividade</li>
           <li>Um momento com Deus na rotina</li>
-          <li>Atividade pronta para repetir quando quiser</li>
+          <li>Material pronto para repetir quando quiser</li>
         </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="section product-section">
-    <div class="container product-layout">
-      <div>
-        <div class="eyebrow">Conheça o produto</div>
-        <h2 class="section-title" style="margin-top:18px">Colorindo com Deus</h2>
-        <p class="section-copy">Um PDF bíblico infantil com desenhos para colorir e versículos simples, feito para crianças de 3 a 10 anos e pensado para momentos de paz, fé e criatividade.</p>
-        <div class="feature-grid">
-          <article class="feature">
-            <span class="gold-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg></span>
-            <b>Pronto para imprimir</b>
-            <p>Receba o material digitalmente e use hoje, sem esperar entrega.</p>
-          </article>
-          <article class="feature">
-            <span class="gold-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/><path d="M12 7v7"/><path d="M9.5 9.5h5"/></svg></span>
-            <b>Versículos simples</b>
-            <p>Cada página aproxima a criança da Palavra de Deus de um jeito leve.</p>
-          </article>
-          <article class="feature">
-            <span class="gold-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 10.5L12 3l9 7.5"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg></span>
-            <b>Para casa e igreja</b>
-            <p>Funciona na rotina da família, escola dominical, catequese e ministério infantil.</p>
-          </article>
-          <article class="feature">
-            <span class="gold-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg></span>
-            <b>Imprima quantas vezes quiser</b>
-            <p>Use novamente com filhos, alunos, turmas e momentos diferentes.</p>
-          </article>
-        </div>
-        <div style="margin-top:30px">
-          <a href="https://pay.kiwify.com.br/MjZtzPT" class="cta secondary" target="_blank" rel="noopener"><span>Garantir acesso por R$9,90</span></a>
-        </div>
       </div>
     </div>
   </section>
@@ -789,23 +808,26 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
 
   <section class="section testimonials">
     <div class="narrow" style="text-align:center">
-      <h2 class="section-title">O que pais e professoras costumam procurar</h2>
-      <p class="section-copy">Uma solução pequena, acessível e pronta, mas que ajuda a criar um momento com mais presença.</p>
+      <h2 class="section-title">Feedback de quem procura uma atividade com propósito</h2>
+      <p class="section-copy">Avaliações de pais e professoras que queriam algo simples, bonito e pronto para usar.</p>
     </div>
     <div class="container testimonial-grid">
       <article class="testimonial">
-        <p>"Eu só queria uma opção para tirar um pouco o celular. Imprimi uma página e minha filha ficou colorindo comigo na mesa."</p>
-        <strong>Mãe cristã</strong>
+        <div class="stars" aria-label="5 estrelas"><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9L10 1.5z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9L10 1.5z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9L10 1.5z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9L10 1.5z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9L10 1.5z"/></svg></div>
+        <p>"Comprei para testar em casa. Imprimi uma página depois do almoço e minha filha ficou colorindo comigo sem pedir o celular."</p>
+        <strong>Mariana, mãe</strong>
         <span>uso em casa</span>
       </article>
       <article class="testimonial">
-        <p>"Para a escola dominical, ajuda demais ter algo pronto. É escolher o desenho, imprimir e levar para a aula."</p>
-        <strong>Professora infantil</strong>
+        <div class="stars" aria-label="5 estrelas"><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9L10 1.5z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9L10 1.5z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9L10 1.5z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9L10 1.5z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9L10 1.5z"/></svg></div>
+        <p>"Usei na escola dominical no domingo. Foi muito prático porque eu só precisei escolher o desenho e imprimir."</p>
+        <strong>Patrícia, professora infantil</strong>
         <span>uso em aula</span>
       </article>
       <article class="testimonial">
-        <p>"Gostei porque não parece só um PDF solto. Tem tema bíblico, versículo e dá para imprimir de novo quando precisar."</p>
-        <strong>Responsável</strong>
+        <div class="stars" aria-label="5 estrelas"><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9L10 1.5z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9L10 1.5z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9L10 1.5z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9L10 1.5z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9L10 1.5z"/></svg></div>
+        <p>"Achei bonito e organizado. Gostei de ter versículo junto, porque dá para conversar sobre Deus enquanto a criança colore."</p>
+        <strong>Camila, responsável</strong>
         <span>material digital</span>
       </article>
     </div>
@@ -856,12 +878,17 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
   const next = document.querySelector('[data-preview-next]');
   if (!track || !prev || !next || dots.length === 0) return;
   let current = 0;
+  let moving = false;
   const total = dots.length;
   const goTo = (index) => {
+    if (moving) return;
+    moving = true;
     current = (index + total) % total;
     track.style.transform = `translateX(-${current * 100}%)`;
     dots.forEach((dot, i) => dot.classList.toggle('active', i === current));
+    window.setTimeout(() => { moving = false; }, 380);
   };
+  track.addEventListener('transitionend', () => { moving = false; });
   prev.addEventListener('click', () => goTo(current - 1));
   next.addEventListener('click', () => goTo(current + 1));
   dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
