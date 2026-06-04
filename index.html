@@ -118,8 +118,8 @@ a{color:inherit}
 }
 .hero{
   position:relative;
-  min-height:660px;
-  padding:42px 0 74px;
+  min-height:600px;
+  padding:34px 0 62px;
   overflow:hidden;
   background:
     radial-gradient(circle at 78% 15%,rgba(255,240,155,.95) 0 0,rgba(255,240,155,.68) 54px,transparent 120px),
@@ -130,21 +130,21 @@ a{color:inherit}
   position:relative;
   z-index:1;
   display:grid;
-  grid-template-columns:minmax(0,1fr) 380px;
-  gap:64px;
+  grid-template-columns:minmax(0,1fr) 360px;
+  gap:48px;
   align-items:center;
 }
 .hero-content{
   max-width:680px;
-  padding-top:26px;
+  padding-top:8px;
   text-align:center;
 }
 .hero h1{
-  margin:24px 0 18px;
+  margin:20px auto 16px;
   max-width:680px;
   font-family:'Fredoka',Arial,sans-serif;
   color:var(--blue-dark);
-  font-size:clamp(40px,6vw,68px);
+  font-size:clamp(38px,5.4vw,62px);
   line-height:1.02;
   letter-spacing:0;
 }
@@ -153,7 +153,7 @@ a{color:inherit}
   max-width:610px;
   margin:0 auto 30px;
   color:#233B63;
-  font-size:21px;
+  font-size:20px;
   line-height:1.55;
   font-weight:700;
 }
@@ -215,7 +215,7 @@ a{color:inherit}
 }
 .hero-product img{
   width:100%;
-  max-height:520px;
+  max-height:500px;
   object-fit:contain;
   border-radius:20px;
   box-shadow:0 18px 46px rgba(23,52,97,.24);
@@ -287,23 +287,31 @@ a{color:inherit}
 }
 .product-layout{
   display:grid;
-  grid-template-columns:260px minmax(0,1fr);
-  gap:66px;
+  grid-template-columns:360px minmax(0,1fr);
+  gap:58px;
   align-items:center;
 }
-.product-shot{
-  max-width:240px;
+.product-preview{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  max-width:360px;
   margin:0 auto;
-  border-radius:32px;
-  background:var(--white);
-  padding:10px;
-  box-shadow:0 24px 60px rgba(46,79,138,.18);
 }
-.product-shot img{
+.product-preview img{
   width:100%;
-  max-height:390px;
+  aspect-ratio:3/4;
   object-fit:contain;
-  border-radius:22px;
+  border-radius:18px;
+  background:var(--white);
+  padding:8px;
+  box-shadow:0 16px 36px rgba(46,79,138,.12);
+  border:1px solid rgba(46,79,138,.1);
+}
+.product-preview img:first-child{
+  grid-row:span 2;
+  align-self:center;
+  background:linear-gradient(180deg,rgba(255,255,255,.88),rgba(255,249,240,.94));
 }
 .product-section .section-copy{
   margin-left:0;
@@ -497,8 +505,7 @@ a{color:inherit}
   .hero h1{font-size:38px}
   .hero-sub{font-size:18px}
   .hero-product{padding:14px;border-radius:24px}
-  .product-shot{max-width:220px}
-  .product-shot img{max-height:360px}
+  .product-preview{grid-template-columns:1fr 1fr;max-width:330px}
   .feature-grid,.preview-grid,.trust-grid{grid-template-columns:1fr}
   .preview-item{max-width:320px;margin:0 auto}
   .cta{width:100%;font-size:17px;padding-left:18px;padding-right:18px}
@@ -598,8 +605,10 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
 
   <section class="section product-section">
     <div class="container product-layout">
-      <div class="product-shot">
-        <img src="CRIATIVO.png" alt="Mockup do livro Colorindo com Deus com páginas internas" width="768" height="1152" loading="lazy">
+      <div class="product-preview" aria-label="Prévia do Colorindo com Deus">
+        <img src="CRIATIVO.png" alt="Capa e páginas do Colorindo com Deus" width="768" height="1152" loading="lazy">
+        <img src="arca-noe.jpg" alt="Página interna da Arca de Noé" width="320" height="426" loading="lazy">
+        <img src="moises-mar.jpg" alt="Página interna de Moisés e o Mar Vermelho" width="320" height="426" loading="lazy">
       </div>
       <div>
         <div class="eyebrow">Conheça o produto</div>
@@ -682,17 +691,17 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
     </div>
     <div class="container testimonial-grid">
       <article class="testimonial">
-        <p>"Eu queria uma atividade que não fosse só ocupar tempo. Queria algo com fé, simples e bonito para fazer com minha filha."</p>
+        <p>"Eu só queria uma opção para tirar um pouco o celular. Imprimi uma página e minha filha ficou colorindo comigo na mesa."</p>
         <strong>Mãe cristã</strong>
         <span>uso em casa</span>
       </article>
       <article class="testimonial">
-        <p>"Para escola dominical, ajuda muito ter desenhos bíblicos prontos. É imprimir e já usar com as crianças."</p>
+        <p>"Para a escola dominical, ajuda demais ter algo pronto. É escolher o desenho, imprimir e levar para a aula."</p>
         <strong>Professora infantil</strong>
         <span>uso em aula</span>
       </article>
       <article class="testimonial">
-        <p>"O melhor é poder repetir. Se a criança gostou de uma página, eu imprimo de novo sem complicação."</p>
+        <p>"Gostei porque não parece só um PDF solto. Tem tema bíblico, versículo e dá para imprimir de novo quando precisar."</p>
         <strong>Responsável</strong>
         <span>material digital</span>
       </article>
@@ -720,10 +729,10 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
 
   <section class="section final">
     <div class="narrow">
-      <h2 class="section-title">Seu filho merece mais do que uma tela.</h2>
-      <p class="section-copy">Por R$9,90, você recebe uma atividade bíblica pronta para imprimir e usar hoje.</p>
+      <h2 class="section-title">Transforme alguns minutos longe da tela em um momento com Deus.</h2>
+      <p class="section-copy">Por R$9,90, você recebe uma atividade bíblica pronta para imprimir e usar ainda hoje.</p>
       <div style="margin-top:30px">
-        <a href="https://pay.kiwify.com.br/MjZtzPT" class="cta" target="_blank" rel="noopener"><span>Garantir acesso agora por R$9,90</span></a>
+        <a href="https://pay.kiwify.com.br/MjZtzPT" class="cta" target="_blank" rel="noopener"><span>Quero imprimir e usar hoje</span></a>
       </div>
       <div style="margin-top:34px">
         <p class="section-copy" style="font-size:16px">Ficou com dúvidas?</p>
