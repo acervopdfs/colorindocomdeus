@@ -53,6 +53,32 @@ a{color:inherit}
   padding:8px 14px;
   box-shadow:0 10px 24px rgba(46,79,138,.08);
 }
+.soft-icon{
+  width:42px;
+  height:42px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 14px;
+  border-radius:14px;
+  background:linear-gradient(135deg,var(--blue-soft),rgba(255,255,255,.9));
+  color:var(--blue);
+  box-shadow:0 10px 22px rgba(46,79,138,.1);
+}
+.soft-icon svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.gold-mark{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:34px;
+  height:34px;
+  margin:0 auto 12px;
+  border-radius:12px;
+  background:linear-gradient(135deg,var(--gold),#FFE179);
+  color:var(--blue-dark);
+  box-shadow:0 10px 20px rgba(216,155,22,.22);
+}
+.gold-mark svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .section{padding:64px 0}
 .section-title{
   margin:0 0 18px;
@@ -205,6 +231,7 @@ a{color:inherit}
   border-radius:34px;
   background:linear-gradient(180deg,rgba(255,255,255,.78),rgba(255,249,240,.88));
   box-shadow:0 28px 80px rgba(23,52,97,.25);
+  animation:gentleFloat 5.4s ease-in-out infinite;
 }
 .hero-product:before{
   content:"";
@@ -220,6 +247,25 @@ a{color:inherit}
   object-fit:contain;
   border-radius:20px;
   box-shadow:0 18px 46px rgba(23,52,97,.24);
+}
+.hero-sparkle{
+  position:absolute;
+  width:34px;
+  height:34px;
+  color:var(--gold);
+  filter:drop-shadow(0 8px 12px rgba(216,155,22,.18));
+  animation:sparklePulse 2.8s ease-in-out infinite;
+}
+.hero-sparkle svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.hero-sparkle.one{right:-8px;top:24px}
+.hero-sparkle.two{left:-10px;bottom:46px;animation-delay:1.2s}
+@keyframes gentleFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
+}
+@keyframes sparklePulse{
+  0%,100%{opacity:.55;transform:scale(.92) rotate(0deg)}
+  50%{opacity:1;transform:scale(1.08) rotate(8deg)}
 }
 .problem{
   background:var(--cream);
@@ -246,7 +292,9 @@ a{color:inherit}
   padding:26px 22px;
   text-align:center;
   box-shadow:0 14px 34px rgba(46,79,138,.08);
+  transition:transform .18s ease,box-shadow .18s ease;
 }
+.pain-card:hover{transform:translateY(-3px);box-shadow:0 18px 38px rgba(46,79,138,.12)}
 .pain-card b{
   display:block;
   margin-bottom:8px;
@@ -268,7 +316,9 @@ a{color:inherit}
   padding:30px;
   text-align:center;
   box-shadow:0 16px 36px rgba(46,79,138,.08);
+  transition:transform .18s ease,box-shadow .18s ease;
 }
+.compare:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(46,79,138,.12)}
 .compare.before{background:#FFF4EF;border:1px solid rgba(247,179,138,.5)}
 .compare.after{background:#F4FAFF;border:1px solid rgba(46,79,138,.18)}
 .compare h3{
@@ -308,7 +358,9 @@ a{color:inherit}
   padding:22px;
   text-align:center;
   box-shadow:0 12px 28px rgba(46,79,138,.07);
+  transition:transform .18s ease,box-shadow .18s ease;
 }
+.feature:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(46,79,138,.11)}
 .feature b{display:block;color:var(--blue-dark);font-size:17px;margin-bottom:8px}
 .feature p{margin:0;color:var(--muted);line-height:1.5;font-size:15px}
 .preview{
@@ -330,7 +382,9 @@ a{color:inherit}
   background:var(--cream);
   padding:12px;
   box-shadow:0 14px 32px rgba(46,79,138,.08);
+  transition:transform .18s ease,box-shadow .18s ease;
 }
+.preview-item:hover{transform:translateY(-4px) rotate(-.5deg);box-shadow:0 18px 38px rgba(46,79,138,.12)}
 .preview-item img{
   width:100%;
   aspect-ratio:3/4;
@@ -355,19 +409,11 @@ a{color:inherit}
   border:1px solid rgba(46,79,138,.12);
   text-align:center;
   box-shadow:0 14px 34px rgba(46,79,138,.08);
+  transition:transform .18s ease,box-shadow .18s ease;
 }
-.use-icon{
-  width:58px;
-  height:58px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin:0 auto 18px;
-  border-radius:18px;
-  background:var(--blue-soft);
-  color:var(--blue);
-  font-size:28px;
-}
+.use-card:hover{transform:translateY(-3px);box-shadow:0 18px 38px rgba(46,79,138,.12)}
+.use-icon{margin-bottom:16px}
+.use-icon svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .use-card h3{margin:0 0 10px;color:var(--blue-dark);font-size:21px}
 .use-card p{margin:0;color:var(--muted);line-height:1.55}
 .testimonials{
@@ -386,7 +432,9 @@ a{color:inherit}
   padding:24px;
   text-align:left;
   box-shadow:0 14px 34px rgba(46,79,138,.08);
+  transition:transform .18s ease,box-shadow .18s ease;
 }
+.testimonial:hover{transform:translateY(-3px);box-shadow:0 18px 38px rgba(46,79,138,.12)}
 .testimonial p{margin:0 0 18px;color:var(--ink);line-height:1.58;font-size:16px}
 .testimonial strong{display:block;color:var(--blue-dark)}
 .testimonial span{display:block;margin-top:3px;color:var(--muted);font-size:13px;font-weight:800}
@@ -427,6 +475,12 @@ a{color:inherit}
   color:var(--blue-dark);
   font-weight:900;
   text-align:center;
+  transition:transform .18s ease,background .18s ease;
+}
+.trust-item:hover{transform:translateY(-2px);background:#EEF7FF}
+@media (prefers-reduced-motion:reduce){
+  .cta:before,.hero-product,.hero-sparkle{animation:none}
+  .pain-card,.compare,.feature,.preview-item,.use-card,.testimonial,.trust-item,.cta{transition:none}
 }
 .final{
   position:relative;
@@ -533,6 +587,8 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
         </ul>
       </div>
       <div class="hero-product" aria-label="Produto Colorindo com Deus">
+        <span class="hero-sparkle one" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z"/><path d="M19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8L19 16z"/></svg></span>
+        <span class="hero-sparkle two" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4v4"/><path d="M12 16v4"/><path d="M4 12h4"/><path d="M16 12h4"/><path d="M6.3 6.3l2.8 2.8"/><path d="M14.9 14.9l2.8 2.8"/><path d="M17.7 6.3l-2.8 2.8"/><path d="M9.1 14.9l-2.8 2.8"/></svg></span>
         <img src="CRIATIVO.png" alt="Capa e páginas do Colorindo com Deus" width="768" height="1152" loading="eager">
       </div>
     </div>
@@ -545,14 +601,17 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
     </div>
     <div class="container pain-grid">
       <article class="pain-card">
+        <span class="soft-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></span>
         <b>Quando a tela vira a resposta para tudo</b>
         <p>A criança pede celular, fica irritada quando precisa parar e a rotina vai ficando mais difícil.</p>
       </article>
       <article class="pain-card">
+        <span class="soft-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg></span>
         <b>Quando falta uma atividade pronta</b>
         <p>Você até quer fazer algo diferente, mas nem sempre sobra tempo para preparar material.</p>
       </article>
       <article class="pain-card">
+        <span class="soft-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M7 8h10"/><path d="M5 21h14"/></svg></span>
         <b>Quando a fé precisa entrar na rotina</b>
         <p>Ensinar sobre Deus pode ser simples, leve e próximo do dia a dia da família.</p>
       </article>
@@ -590,18 +649,22 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
         <p class="section-copy">Um PDF bíblico infantil com desenhos para colorir e versículos simples, feito para crianças de 3 a 10 anos e pensado para momentos de paz, fé e criatividade.</p>
         <div class="feature-grid">
           <article class="feature">
+            <span class="gold-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg></span>
             <b>Pronto para imprimir</b>
             <p>Receba o material digitalmente e use hoje, sem esperar entrega.</p>
           </article>
           <article class="feature">
+            <span class="gold-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/><path d="M12 7v7"/><path d="M9.5 9.5h5"/></svg></span>
             <b>Versículos simples</b>
             <p>Cada página aproxima a criança da Palavra de Deus de um jeito leve.</p>
           </article>
           <article class="feature">
+            <span class="gold-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 10.5L12 3l9 7.5"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg></span>
             <b>Para casa e igreja</b>
             <p>Funciona na rotina da família, escola dominical, catequese e ministério infantil.</p>
           </article>
           <article class="feature">
+            <span class="gold-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg></span>
             <b>Imprima quantas vezes quiser</b>
             <p>Use novamente com filhos, alunos, turmas e momentos diferentes.</p>
           </article>
@@ -641,17 +704,17 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
     </div>
     <div class="container use-grid">
       <article class="use-card">
-        <div class="use-icon">⌂</div>
+        <div class="soft-icon use-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 10.5L12 3l9 7.5"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg></div>
         <h3>Em casa</h3>
         <p>Para tardes mais calmas, momentos em família e pausas saudáveis longe das telas.</p>
       </article>
       <article class="use-card">
-        <div class="use-icon">✝</div>
+        <div class="soft-icon use-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M7 8h10"/><path d="M5 21h14"/></svg></div>
         <h3>Na escola dominical</h3>
         <p>Material pronto para complementar aulas, histórias bíblicas e atividades com a turma.</p>
       </article>
       <article class="use-card">
-        <div class="use-icon">☼</div>
+        <div class="soft-icon use-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.93 19.07l1.41-1.41"/><path d="M17.66 6.34l1.41-1.41"/></svg></div>
         <h3>Na rotina corrida</h3>
         <p>Quando você precisa de algo simples, bonito e com propósito para usar no mesmo dia.</p>
       </article>
