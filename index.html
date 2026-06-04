@@ -53,7 +53,7 @@ a{color:inherit}
   padding:8px 14px;
   box-shadow:0 10px 24px rgba(46,79,138,.08);
 }
-.section{padding:76px 0}
+.section{padding:64px 0}
 .section-title{
   margin:0 0 18px;
   font-family:'Fredoka',Arial,sans-serif;
@@ -118,8 +118,8 @@ a{color:inherit}
 }
 .hero{
   position:relative;
-  min-height:600px;
-  padding:34px 0 62px;
+  min-height:540px;
+  padding:42px 0 58px;
   overflow:hidden;
   background:
     radial-gradient(circle at 78% 15%,rgba(255,240,155,.95) 0 0,rgba(255,240,155,.68) 54px,transparent 120px),
@@ -130,8 +130,9 @@ a{color:inherit}
   position:relative;
   z-index:1;
   display:grid;
-  grid-template-columns:minmax(0,1fr) 360px;
-  gap:48px;
+  grid-template-columns:minmax(0,600px) 330px;
+  gap:54px;
+  justify-content:center;
   align-items:center;
 }
 .hero-content{
@@ -144,7 +145,7 @@ a{color:inherit}
   max-width:680px;
   font-family:'Fredoka',Arial,sans-serif;
   color:var(--blue-dark);
-  font-size:clamp(38px,5.4vw,62px);
+  font-size:clamp(42px,5vw,64px);
   line-height:1.02;
   letter-spacing:0;
 }
@@ -153,7 +154,7 @@ a{color:inherit}
   max-width:610px;
   margin:0 auto 30px;
   color:#233B63;
-  font-size:20px;
+  font-size:21px;
   line-height:1.55;
   font-weight:700;
 }
@@ -215,7 +216,7 @@ a{color:inherit}
 }
 .hero-product img{
   width:100%;
-  max-height:500px;
+  max-height:460px;
   object-fit:contain;
   border-radius:20px;
   box-shadow:0 18px 46px rgba(23,52,97,.24);
@@ -236,7 +237,7 @@ a{color:inherit}
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:18px;
-  margin-top:36px;
+  margin-top:30px;
 }
 .pain-card{
   border:1px solid rgba(46,79,138,.12);
@@ -286,49 +287,26 @@ a{color:inherit}
     linear-gradient(180deg,#F8FCFF,var(--cream));
 }
 .product-layout{
-  display:grid;
-  grid-template-columns:360px minmax(0,1fr);
-  gap:58px;
-  align-items:center;
-}
-.product-preview{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:14px;
-  max-width:360px;
+  max-width:860px;
   margin:0 auto;
-}
-.product-preview img{
-  width:100%;
-  aspect-ratio:3/4;
-  object-fit:contain;
-  border-radius:18px;
-  background:var(--white);
-  padding:8px;
-  box-shadow:0 16px 36px rgba(46,79,138,.12);
-  border:1px solid rgba(46,79,138,.1);
-}
-.product-preview img:first-child{
-  grid-row:span 2;
-  align-self:center;
-  background:linear-gradient(180deg,rgba(255,255,255,.88),rgba(255,249,240,.94));
+  text-align:center;
 }
 .product-section .section-copy{
-  margin-left:0;
+  margin-left:auto;
 }
 .feature-grid{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+  grid-template-columns:repeat(4,1fr);
   gap:16px;
-  margin-top:28px;
+  margin-top:32px;
 }
 .feature{
-  min-height:136px;
+  min-height:172px;
   border:1px solid rgba(46,79,138,.12);
   border-radius:22px;
   background:rgba(255,255,255,.84);
   padding:22px;
-  text-align:left;
+  text-align:center;
   box-shadow:0 12px 28px rgba(46,79,138,.07);
 }
 .feature b{display:block;color:var(--blue-dark);font-size:17px;margin-bottom:8px}
@@ -340,8 +318,11 @@ a{color:inherit}
 .preview-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:18px;
-  margin-top:38px;
+  gap:22px;
+  margin-top:34px;
+  max-width:760px;
+  margin-left:auto;
+  margin-right:auto;
 }
 .preview-item{
   border:1px solid rgba(46,79,138,.12);
@@ -485,14 +466,13 @@ a{color:inherit}
 .fixed-cta .cta{width:100%;min-height:52px;font-size:16px;padding:14px 18px}
 @media (max-width:920px){
   .hero{min-height:auto;padding-bottom:70px}
-  .hero-grid,.product-layout,.bridge-box,.guarantee-card{grid-template-columns:1fr}
+  .hero-grid,.bridge-box,.guarantee-card{grid-template-columns:1fr}
   .hero-content{padding-top:28px;text-align:center}
   .hero h1,.hero-sub{margin-left:auto;margin-right:auto}
   .hero-actions,.instant-note{justify-content:center}
   .hero-product{width:min(420px,100%);margin:0 auto}
-  .product-section{text-align:center}
-  .product-section .section-copy{margin-left:auto}
   .pain-grid,.use-grid,.testimonial-grid{grid-template-columns:1fr}
+  .feature-grid{grid-template-columns:repeat(2,1fr)}
   .preview-grid{grid-template-columns:repeat(2,1fr)}
   .trust-grid{grid-template-columns:repeat(2,1fr)}
   .guarantee-card{text-align:center}
@@ -500,12 +480,11 @@ a{color:inherit}
 @media (max-width:640px){
   body{padding-bottom:78px}
   .container,.narrow{width:min(100% - 28px,1120px)}
-  .section{padding:58px 0}
+  .section{padding:52px 0}
   .hero{padding-top:22px}
   .hero h1{font-size:38px}
   .hero-sub{font-size:18px}
   .hero-product{padding:14px;border-radius:24px}
-  .product-preview{grid-template-columns:1fr 1fr;max-width:330px}
   .feature-grid,.preview-grid,.trust-grid{grid-template-columns:1fr}
   .preview-item{max-width:320px;margin:0 auto}
   .cta{width:100%;font-size:17px;padding-left:18px;padding-right:18px}
@@ -605,11 +584,6 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
 
   <section class="section product-section">
     <div class="container product-layout">
-      <div class="product-preview" aria-label="Prévia do Colorindo com Deus">
-        <img src="CRIATIVO.png" alt="Capa e páginas do Colorindo com Deus" width="768" height="1152" loading="lazy">
-        <img src="arca-noe.jpg" alt="Página interna da Arca de Noé" width="320" height="426" loading="lazy">
-        <img src="moises-mar.jpg" alt="Página interna de Moisés e o Mar Vermelho" width="320" height="426" loading="lazy">
-      </div>
       <div>
         <div class="eyebrow">Conheça o produto</div>
         <h2 class="section-title" style="margin-top:18px">Colorindo com Deus</h2>
