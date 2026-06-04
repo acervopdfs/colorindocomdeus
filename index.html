@@ -3,86 +3,484 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Colorindo com Deus: Um acervo digital com mais de 100 desenhos bíblicos para colorir. Afaste seu filho das telas e desperte a fé de forma criativa.">
-<title>Colorindo com Deus</title>
+<meta name="description" content="Colorindo com Deus: atividade bíblica pronta para imprimir, colorir e transformar alguns minutos do dia em um momento com Deus.">
+<title>Colorindo com Deus | Atividade bíblica para colorir</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
-/* CSS OTIMIZADO E MINIFICADO */
-body{margin:0;font-family:'Nunito',sans-serif;background:#f4f8ff;color:#1a2340}
-.container{max-width:900px;margin:auto}
-.hero{background:linear-gradient(180deg,#123a80,#0a2a5c);text-align:center;padding:64px 20px 72px;color:#fff}
-.badge{background:rgba(255,255,255,0.12);border:1px solid #f5c518;padding:8px 16px;border-radius:20px;font-size:13px;margin-bottom:32px;display:inline-block}
-h1{font-family:'Fredoka';font-size:34px;line-height:1.2;margin-bottom:10px}h1 span{color:#ffd84d}
-.sub{opacity:.9;font-size:16px;margin-bottom:44px}
-.hero-flex{display:flex;justify-content:center;align-items:center;gap:50px;flex-wrap:wrap}
-.product img{max-width:320px;border-radius:18px;box-shadow:0 25px 50px rgba(0,0,0,.4)}
-.cta-box{text-align:center;max-width:300px}
-.cta{background:linear-gradient(90deg,#ff3b2f,#ff5a3d);color:#fff;font-weight:800;font-size:20px;padding:18px 30px;border-radius:50px;display:inline-block;text-decoration:none;box-shadow:0 15px 35px rgba(255,0,0,.5);animation:pulse 2s infinite}
-@keyframes pulse{50%{transform:scale(1.08)}}
-.price{margin-top:14px;font-size:14px}.price strong{color:#00e676;font-size:28px;display:block;margin-top:4px}.price span{font-size:13px;color:#cfd8dc}
-.timer{margin-top:12px;font-weight:800;font-size:14px;background:#ff3b2f;padding:10px;border-radius:10px;display:inline-block;animation:blink 1s infinite}.timer span{font-size:18px}
-@keyframes blink{50%{opacity:.7}}
-section{padding:50px 20px;text-align:center}
-h2{font-family:'Fredoka';font-size:26px;margin-top:0;margin-bottom:28px;line-height:1.3}
-.benefits{max-width:420px;margin:auto;display:flex;flex-direction:column;gap:16px}
-.benefit{background:#fff;padding:18px 20px;border-radius:14px;box-shadow:0 6px 18px rgba(0,0,0,.06);font-weight:600;line-height:1.5}
-.guarantee{border:2px dashed #1a4fa0;padding:26px 22px;margin-top:20px;border-radius:16px;background:#fff;max-width:420px;margin:auto;text-align:center;line-height:1.7}
-.trust-bar{background:#fff;padding:40px 20px;border-top:1px solid #eef0f5;border-bottom:1px solid #eef0f5}
-.trust-grid{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;max-width:560px;margin:0 auto}
-.trust-item{display:flex;flex-direction:column;align-items:center;gap:8px;width:110px}
-.trust-icon{width:48px;height:48px;background:#f0f4fb;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#1a4fa0}.trust-icon svg{width:22px;height:22px}
-.trust-item span{font-size:12px;font-weight:700;color:#2a3a5c;text-align:center;line-height:1.3}
-.whatsapp{background:#25d366;color:#fff;padding:15px 26px;border-radius:30px;text-decoration:none;display:inline-block;margin-top:20px;font-weight:700}
-.fixed-cta{position:fixed;bottom:0;left:0;width:100%;background:#fff;padding:15px 0;box-sizing:border-box;display:none;box-shadow:0 -4px 15px rgba(0,0,0,.1);z-index:999;text-align:center}.fixed-cta a{display:inline-block;width:90%;max-width:400px;box-sizing:border-box;font-size:16px;padding:15px 20px;margin:0 auto}
-@media(max-width:768px){.fixed-cta{display:flex;justify-content:center}body{padding-bottom:80px}}
-/* OUTROS ESTILOS DA PÁGINA (CARROSSEL, FEEDBACKS ETC) MANTIDOS AQUI NO SEU CÓDIGO ORIGINAL... (Basta colar os estilos do produto, previa e dms que estavam no seu arquivo original aqui em baixo) */
-.product-reveal{background:linear-gradient(160deg,#e8f0ff,#f4f8ff);border-top:3px solid #d0e0ff;border-bottom:3px solid #d0e0ff;padding:60px 20px}
-.product-tag{display:inline-block;background:#1a4fa0;color:#fff;font-size:13px;font-weight:700;padding:6px 16px;border-radius:20px;margin-bottom:24px;letter-spacing:.5px}
-.product-desc{max-width:500px;margin:0 auto 36px;font-size:16px;line-height:1.7;color:#2a3a5c}
-.product-features{display:flex;flex-direction:column;gap:16px;max-width:480px;margin:0 auto;text-align:left}
-.pf-card{background:#fff;border-radius:16px;padding:16px 20px;display:flex;align-items:flex-start;gap:16px;box-shadow:0 6px 20px rgba(26,79,160,.09);border-left:4px solid #ffd84d}
-.pf-icon{font-size:26px;line-height:1;flex-shrink:0;margin-top:2px}.pf-card strong{display:block;font-size:15px;color:#1a2340;margin-bottom:3px}.pf-card p{margin:0;font-size:13px;color:#5a6a8a;line-height:1.5}
-.preview-section{background:#f4f8ff;padding:60px 20px;text-align:center}
-.preview-sub{color:#5a6a8a;font-size:14px;margin-top:-16px;margin-bottom:32px;line-height:1.6}
-.preview-wrapper{position:relative;max-width:320px;margin:auto}
-.preview-carousel-container{overflow:hidden;border-radius:8px;box-shadow:0 12px 35px rgba(0,0,0,.1)}
-.preview-carousel{display:flex;transition:transform .4s ease}
-.preview-slide{min-width:100%}
-.preview-slide img{width:100%;aspect-ratio:3/4;object-fit:contain;background:#fff;display:block}
-.preview-btn{position:absolute;top:50%;transform:translateY(-50%);background:#fff;border:none;width:42px;height:42px;border-radius:50%;box-shadow:0 5px 15px rgba(0,0,0,.2);cursor:pointer;font-size:20px;z-index:2}
-.preview-btn.left{left:-20px}
-.preview-btn.right{right:-20px}
-.preview-dots{display:flex;justify-content:center;gap:8px;margin-top:20px}
-.preview-dot{width:10px;height:10px;border-radius:50%;background:#c8d4e8;cursor:pointer;transition:background .3s,transform .3s}
-.preview-dot.active{background:#1a4fa0;transform:scale(1.25)}
-.dm-section{background:#f4f8ff;padding:60px 20px}
-.dm-carousel-wrap{position:relative;max-width:340px;margin:0 auto;overflow:hidden}
-.dm-carousel{display:flex;transition:transform .4s cubic-bezier(.25,.46,.45,.94);cursor:grab;user-select:none}
-.dm-carousel:active{cursor:grabbing}
-.ig-dm{min-width:100%;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.1);font-family:'Nunito',sans-serif}
-.ig-dm-header{display:flex;align-items:center;padding:12px 14px;border-bottom:1px solid #f0f0f0;gap:10px}
-.ig-avatar-wrap{position:relative;flex-shrink:0}
-.ig-avatar{width:38px;height:38px;border-radius:50%;display:block}
-.ig-online{position:absolute;bottom:1px;right:1px;width:10px;height:10px;background:#4ade80;border-radius:50%;border:2px solid #fff}
-.ig-user-info{display:flex;flex-direction:column;line-height:1.3}
-.ig-user-info strong{font-size:14px;color:#111}
-.ig-user-info span{font-size:11px;color:#888}
-.ig-dm-body{padding:14px 16px 14px}
-.ig-time{text-align:center;font-size:11px;color:#aaa;margin-bottom:10px}
-.ig-story-reply{display:flex;flex-direction:column;margin-bottom:8px}
-.ig-story-label{font-size:11px;color:#aaa;margin-bottom:4px}
-.ig-story-thumb{width:72px;border-radius:10px;opacity:.85}
-.ig-bubble-wrap{display:flex;align-items:flex-end;gap:8px}
-.ig-bubble-avatar{width:26px;height:26px;border-radius:50%;flex-shrink:0;margin-bottom:2px}
-.ig-bubble{background:#f3f4f6;border-radius:20px 20px 20px 4px;padding:11px 14px;font-size:13px;color:#111;line-height:1.5;max-width:calc(100% - 40px);text-align:left}
-.ig-heart{font-size:14px;margin-top:6px;margin-left:36px;opacity:.9}
-.dm-dots{display:flex;justify-content:center;gap:6px;margin-top:20px}
-.dm-dot{width:7px;height:7px;border-radius:50%;background:#c8d4e8;transition:background .3s,transform .3s}
-.dm-dot.active{background:#1a4fa0;transform:scale(1.25)}
+:root{
+  --blue:#2E4F8A;
+  --blue-dark:#173461;
+  --blue-soft:#DCEEFF;
+  --gold:#F6C445;
+  --gold-dark:#D89B16;
+  --cream:#FFF9F0;
+  --peach:#F7B38A;
+  --white:#FFFFFF;
+  --ink:#16223D;
+  --muted:#5B6680;
+  --line:#E7DCCB;
+  --green:#26945F;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:'Nunito',Arial,sans-serif;
+  color:var(--ink);
+  background:var(--cream);
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+.container{width:min(1120px,calc(100% - 40px));margin:0 auto}
+.narrow{width:min(820px,calc(100% - 40px));margin:0 auto}
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  width:max-content;
+  max-width:100%;
+  border:1px solid rgba(46,79,138,.18);
+  border-radius:999px;
+  background:rgba(255,255,255,.76);
+  color:var(--blue-dark);
+  font-size:13px;
+  font-weight:900;
+  padding:8px 14px;
+  box-shadow:0 10px 24px rgba(46,79,138,.08);
+}
+.section{padding:76px 0}
+.section-title{
+  margin:0 0 18px;
+  font-family:'Fredoka',Arial,sans-serif;
+  font-size:clamp(28px,4vw,44px);
+  line-height:1.08;
+  letter-spacing:0;
+  color:var(--blue-dark);
+}
+.section-copy{
+  margin:0 auto;
+  color:var(--muted);
+  font-size:18px;
+  line-height:1.65;
+}
+.cta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  min-height:58px;
+  border:0;
+  border-radius:999px;
+  padding:17px 28px;
+  background:linear-gradient(135deg,var(--gold),#FFE179);
+  color:var(--blue-dark);
+  box-shadow:0 16px 34px rgba(216,155,22,.28), inset 0 -3px 0 rgba(216,155,22,.25);
+  font-family:'Fredoka',Arial,sans-serif;
+  font-size:18px;
+  font-weight:700;
+  text-align:center;
+  text-decoration:none;
+  transition:transform .18s ease,box-shadow .18s ease;
+}
+.cta:hover{transform:translateY(-2px);box-shadow:0 20px 40px rgba(216,155,22,.34), inset 0 -3px 0 rgba(216,155,22,.25)}
+.cta.secondary{
+  background:var(--blue);
+  color:var(--white);
+  box-shadow:0 16px 34px rgba(46,79,138,.26), inset 0 -3px 0 rgba(0,0,0,.12);
+}
+.hero{
+  position:relative;
+  min-height:720px;
+  padding:34px 0 82px;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 78% 15%,rgba(255,240,155,.95) 0 0,rgba(255,240,155,.68) 54px,transparent 120px),
+    radial-gradient(circle at 18% 18%,rgba(255,255,255,.92) 0 0,rgba(255,255,255,.72) 90px,transparent 220px),
+    linear-gradient(135deg,#A9D9FF 0%,#FFF3BE 48%,#F7B38A 100%);
+}
+.hero:before,
+.hero:after{
+  content:"";
+  position:absolute;
+  left:-8%;
+  right:-8%;
+  height:170px;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse at 10% 70%,rgba(255,255,255,.82) 0 22%,transparent 23%),
+    radial-gradient(ellipse at 28% 60%,rgba(255,255,255,.9) 0 25%,transparent 26%),
+    radial-gradient(ellipse at 50% 75%,rgba(255,255,255,.86) 0 22%,transparent 23%),
+    radial-gradient(ellipse at 72% 58%,rgba(255,255,255,.9) 0 25%,transparent 26%),
+    radial-gradient(ellipse at 90% 74%,rgba(255,255,255,.82) 0 22%,transparent 23%);
+  opacity:.86;
+}
+.hero:before{bottom:-64px}
+.hero:after{top:74px;opacity:.36;transform:scale(.78)}
+.hero-grid{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 430px;
+  gap:56px;
+  align-items:center;
+}
+.hero-content{padding-top:56px}
+.hero h1{
+  margin:24px 0 18px;
+  max-width:680px;
+  font-family:'Fredoka',Arial,sans-serif;
+  color:var(--blue-dark);
+  font-size:clamp(40px,6vw,68px);
+  line-height:1.02;
+  letter-spacing:0;
+}
+.hero h1 span{color:var(--blue)}
+.hero-sub{
+  max-width:610px;
+  margin:0 0 30px;
+  color:#233B63;
+  font-size:21px;
+  line-height:1.55;
+  font-weight:700;
+}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:28px}
+.price-card{
+  display:inline-flex;
+  flex-direction:column;
+  gap:2px;
+  min-width:172px;
+  border:1px solid rgba(46,79,138,.16);
+  border-radius:18px;
+  background:rgba(255,255,255,.72);
+  padding:12px 16px;
+  box-shadow:0 12px 28px rgba(46,79,138,.12);
+}
+.price-card small{color:var(--muted);font-size:13px;font-weight:800}
+.price-card strong{color:var(--green);font-size:30px;line-height:1;font-weight:900}
+.instant-note{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:22px;
+  padding:0;
+  list-style:none;
+}
+.instant-note li{
+  border-radius:999px;
+  background:rgba(255,255,255,.68);
+  color:var(--blue-dark);
+  padding:9px 13px;
+  font-size:13px;
+  font-weight:900;
+  box-shadow:0 8px 18px rgba(46,79,138,.08);
+}
+.hero-product{
+  position:relative;
+  align-self:end;
+  padding:26px;
+  border-radius:34px;
+  background:linear-gradient(180deg,rgba(255,255,255,.78),rgba(255,249,240,.88));
+  box-shadow:0 28px 80px rgba(23,52,97,.25);
+}
+.hero-product:before{
+  content:"";
+  position:absolute;
+  inset:18px -18px -18px 42px;
+  z-index:-1;
+  border-radius:34px;
+  background:rgba(46,79,138,.16);
+}
+.hero-product img{
+  width:100%;
+  border-radius:20px;
+  box-shadow:0 18px 46px rgba(23,52,97,.24);
+}
+.product-seal{
+  position:absolute;
+  left:-12px;
+  bottom:28px;
+  width:128px;
+  height:128px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:5px solid var(--cream);
+  border-radius:50%;
+  background:var(--blue);
+  color:var(--white);
+  text-align:center;
+  font-family:'Fredoka',Arial,sans-serif;
+  font-size:18px;
+  line-height:1.05;
+  box-shadow:0 14px 30px rgba(23,52,97,.32);
+}
+.product-seal span{display:block;color:var(--gold);font-size:27px}
+.problem{
+  background:var(--cream);
+  text-align:center;
+}
+.pain-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:36px;
+}
+.pain-card{
+  border:1px solid rgba(46,79,138,.12);
+  border-radius:24px;
+  background:var(--white);
+  padding:26px 22px;
+  text-align:left;
+  box-shadow:0 14px 34px rgba(46,79,138,.08);
+}
+.pain-card b{
+  display:block;
+  margin-bottom:8px;
+  color:var(--blue-dark);
+  font-size:19px;
+}
+.pain-card p{margin:0;color:var(--muted);line-height:1.55}
+.bridge{
+  background:linear-gradient(180deg,var(--white),#F7FBFF);
+}
+.bridge-box{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+  align-items:stretch;
+}
+.compare{
+  border-radius:28px;
+  padding:30px;
+  box-shadow:0 16px 36px rgba(46,79,138,.08);
+}
+.compare.before{background:#FFF4EF;border:1px solid rgba(247,179,138,.5)}
+.compare.after{background:#F4FAFF;border:1px solid rgba(46,79,138,.18)}
+.compare h3{
+  margin:0 0 18px;
+  font-family:'Fredoka',Arial,sans-serif;
+  font-size:28px;
+  color:var(--blue-dark);
+}
+.compare ul{margin:0;padding:0;list-style:none;display:grid;gap:12px}
+.compare li{font-size:17px;line-height:1.45;color:var(--muted);font-weight:800}
+.product-section{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 10% 10%,rgba(246,196,69,.22),transparent 260px),
+    linear-gradient(180deg,#F8FCFF,var(--cream));
+}
+.product-layout{
+  display:grid;
+  grid-template-columns:390px minmax(0,1fr);
+  gap:58px;
+  align-items:center;
+}
+.product-shot{
+  border-radius:32px;
+  background:var(--white);
+  padding:18px;
+  box-shadow:0 24px 60px rgba(46,79,138,.18);
+}
+.product-shot img{border-radius:22px}
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+  margin-top:28px;
+}
+.feature{
+  min-height:148px;
+  border:1px solid rgba(46,79,138,.12);
+  border-radius:22px;
+  background:rgba(255,255,255,.84);
+  padding:22px;
+  box-shadow:0 12px 28px rgba(46,79,138,.07);
+}
+.feature b{display:block;color:var(--blue-dark);font-size:17px;margin-bottom:8px}
+.feature p{margin:0;color:var(--muted);line-height:1.5;font-size:15px}
+.preview{
+  background:var(--white);
+  text-align:center;
+}
+.preview-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+  margin-top:38px;
+}
+.preview-item{
+  border:1px solid rgba(46,79,138,.12);
+  border-radius:22px;
+  background:var(--cream);
+  padding:12px;
+  box-shadow:0 14px 32px rgba(46,79,138,.08);
+}
+.preview-item img{
+  width:100%;
+  aspect-ratio:3/4;
+  object-fit:contain;
+  border-radius:14px;
+  background:var(--white);
+}
+.use-cases{
+  background:linear-gradient(180deg,#F7FBFF,var(--cream));
+}
+.use-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:34px;
+}
+.use-card{
+  min-height:210px;
+  border-radius:26px;
+  padding:28px;
+  background:var(--white);
+  border:1px solid rgba(46,79,138,.12);
+  box-shadow:0 14px 34px rgba(46,79,138,.08);
+}
+.use-icon{
+  width:58px;
+  height:58px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:18px;
+  border-radius:18px;
+  background:var(--blue-soft);
+  color:var(--blue);
+  font-size:28px;
+}
+.use-card h3{margin:0 0 10px;color:var(--blue-dark);font-size:21px}
+.use-card p{margin:0;color:var(--muted);line-height:1.55}
+.testimonials{
+  background:var(--cream);
+}
+.testimonial-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:34px;
+}
+.testimonial{
+  border:1px solid rgba(46,79,138,.12);
+  border-radius:24px;
+  background:var(--white);
+  padding:24px;
+  box-shadow:0 14px 34px rgba(46,79,138,.08);
+}
+.testimonial p{margin:0 0 18px;color:var(--ink);line-height:1.58;font-size:16px}
+.testimonial strong{display:block;color:var(--blue-dark)}
+.testimonial span{display:block;margin-top:3px;color:var(--muted);font-size:13px;font-weight:800}
+.guarantee{
+  background:linear-gradient(135deg,var(--blue),var(--blue-dark));
+  color:var(--white);
+}
+.guarantee-card{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:30px;
+  align-items:center;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:30px;
+  background:rgba(255,255,255,.08);
+  padding:34px;
+}
+.guarantee h2{color:var(--white)}
+.guarantee p{margin:0;color:rgba(255,255,255,.84);font-size:18px;line-height:1.6}
+.trust-bar{
+  background:var(--white);
+  padding:34px 0;
+  border-bottom:1px solid rgba(46,79,138,.1);
+}
+.trust-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+.trust-item{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  min-height:76px;
+  border-radius:18px;
+  background:#F7FBFF;
+  color:var(--blue-dark);
+  font-weight:900;
+  text-align:center;
+}
+.final{
+  position:relative;
+  overflow:hidden;
+  text-align:center;
+  background:
+    radial-gradient(circle at 80% 14%,rgba(246,196,69,.22),transparent 210px),
+    linear-gradient(180deg,var(--cream),#EAF5FF);
+}
+.final .section-title{max-width:760px;margin-left:auto;margin-right:auto}
+.wa-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:52px;
+  margin-top:18px;
+  border-radius:999px;
+  padding:14px 22px;
+  background:#25D366;
+  color:var(--white);
+  text-decoration:none;
+  font-weight:900;
+  box-shadow:0 12px 26px rgba(37,211,102,.24);
+}
+.fixed-cta{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:40;
+  display:none;
+  padding:12px 14px;
+  background:rgba(255,249,240,.94);
+  backdrop-filter:blur(12px);
+  box-shadow:0 -10px 24px rgba(23,52,97,.14);
+}
+.fixed-cta .cta{width:100%;min-height:52px;font-size:16px;padding:14px 18px}
+@media (max-width:920px){
+  .hero{min-height:auto;padding-bottom:70px}
+  .hero-grid,.product-layout,.bridge-box,.guarantee-card{grid-template-columns:1fr}
+  .hero-content{padding-top:28px;text-align:center}
+  .hero h1,.hero-sub{margin-left:auto;margin-right:auto}
+  .hero-actions,.instant-note{justify-content:center}
+  .hero-product{width:min(420px,100%);margin:0 auto}
+  .pain-grid,.use-grid,.testimonial-grid{grid-template-columns:1fr}
+  .preview-grid{grid-template-columns:repeat(2,1fr)}
+  .trust-grid{grid-template-columns:repeat(2,1fr)}
+  .guarantee-card{text-align:center}
+}
+@media (max-width:640px){
+  body{padding-bottom:78px}
+  .container,.narrow{width:min(100% - 28px,1120px)}
+  .section{padding:58px 0}
+  .hero{padding-top:22px}
+  .hero h1{font-size:38px}
+  .hero-sub{font-size:18px}
+  .hero-product{padding:14px;border-radius:24px}
+  .product-seal{width:102px;height:102px;font-size:15px;left:-6px;bottom:18px}
+  .product-seal span{font-size:22px}
+  .feature-grid,.preview-grid,.trust-grid{grid-template-columns:1fr}
+  .preview-item{max-width:320px;margin:0 auto}
+  .cta{width:100%;font-size:17px;padding-left:18px;padding-right:18px}
+  .price-card{width:100%;align-items:center}
+  .fixed-cta{display:block}
+}
 </style>
 
 <script>
@@ -103,244 +501,217 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
 </head>
 
 <body>
-
-<div class="hero">
-<div class="container">
-<div class="badge">🙏 Usado por pais, mães e professores para tirar as crianças das telas com mais leveza</div>
-<h1>Seu filho passa horas no celular…<br><span>e você sente que está perdendo a conexão com ele?</span></h1>
-<p class="sub">Transforme o tempo de tela em momentos de paz, criatividade e conexão com Deus — de forma simples, divertida e sem estresse.</p>
-<div class="hero-flex">
-<div class="product">
-<img src="CRIATIVO.png" alt="Capa do E-book Colorindo com Deus" width="320" height="568" loading="eager">
-  
-</div>
-<div class="cta-box">
-<a href="https://pay.kiwify.com.br/MjZtzPT" class="cta" target="_blank">🙏 Quero meu filho longe do celular</a>
-<div class="price">
-De <del>R$29,90</del>
-<strong>por R$9,90</strong>
-<span>Acesso imediato — baixe agora e imprima quantas vezes quiser 🖨️</span>
-</div>
-<div class="timer">⏰ Oferta especial por tempo limitado: <span id="countdown">60:00</span></div>
-<p style="font-size:12px;color:#d7e3ff;margin-top:14px;line-height:1.5;">
-❤️ Atividade perfeita para momentos em família, escola dominical e tardes longe das telas
-</p>
-</div>
-</div>
-</div>
-</div>
-
-<section>
-<h2>Seja sincero… isso acontece aí na sua casa?</h2>
-<div class="benefits">
-<div class="benefit">📱 A criança só quer saber de celular o tempo todo</div>
-<div class="benefit">😤 Tirar o celular vira estresse e discussão</div>
-<div class="benefit">💔 Você sente que estão se afastando cada vez mais</div>
-</div>
-<p style="margin-top:28px;margin-bottom:28px;font-size:15px;color:#5a6a8a;max-width:380px;margin-left:auto;margin-right:auto;line-height:1.6;">Se nada mudar, isso só tende a piorar com o tempo. Mas existe uma saída simples.</p>
-<a href="https://pay.kiwify.com.br/MjZtzPT" class="cta" target="_blank" style="font-size:16px;padding:15px 26px;">✝️ Quero ensinar meu filho sobre Deus agora</a>
-</section>
-
-<section style="background:#fff;padding:60px 20px;">
-  <div class="container">
-    
-    <h2>Olha a diferença 👇</h2>
-
-    <div style="display:flex;flex-wrap:wrap;gap:20px;justify-content:center;margin-top:40px;">
-
-      <!-- ANTES -->
-      <div style="flex:1;min-width:260px;max-width:340px;background:#fff4f4;border:2px solid #ffd6d6;border-radius:20px;padding:24px;">
-        <div style="font-size:42px;margin-bottom:10px;">📱</div>
-        <h3 style="margin-top:0;color:#d93025;">Antes</h3>
-
-        <p style="line-height:1.7;color:#5a6a8a;">
-          ❌ Horas no celular<br>
-          ❌ Irritação e discussão<br>
-          ❌ Falta de interesse em atividades offline<br>
-          ❌ Distanciamento familiar
-        </p>
+<main>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="eyebrow">Colorindo com Deus | PDF bíblico imprimível</div>
+        <h1>Seu filho só quer celular… <span>e você já não aguenta mais isso?</span></h1>
+        <p class="hero-sub">Uma atividade bíblica pronta para imprimir, colorir e transformar alguns minutos do dia em um momento com Deus.</p>
+        <div class="hero-actions">
+          <a href="https://pay.kiwify.com.br/MjZtzPT" class="cta" target="_blank" rel="noopener">Quero o Colorindo com Deus</a>
+          <div class="price-card">
+            <small>De <del>R$29,90</del> por</small>
+            <strong>R$9,90</strong>
+            <small>acesso imediato</small>
+          </div>
+        </div>
+        <ul class="instant-note" aria-label="Benefícios rápidos">
+          <li>Baixe agora</li>
+          <li>Imprima quantas vezes quiser</li>
+          <li>Use em casa ou na escola dominical</li>
+        </ul>
       </div>
-
-      <!-- DEPOIS -->
-      <div style="flex:1;min-width:260px;max-width:340px;background:#f4fff5;border:2px solid #c8f7d0;border-radius:20px;padding:24px;">
-        <div style="font-size:42px;margin-bottom:10px;">🎨</div>
-        <h3 style="margin-top:0;color:#188038;">Depois</h3>
-
-        <p style="line-height:1.7;color:#5a6a8a;">
-          ✅ Mais foco e criatividade<br>
-          ✅ Momentos em família<br>
-          ✅ Criança entretida longe das telas<br>
-          ✅ Aprendendo sobre Deus enquanto se diverte
-        </p>
-      </div>
-
-    </div>
-
-    <a href="https://pay.kiwify.com.br/MjZtzPT"
-       class="cta"
-       target="_blank"
-       style="margin-top:40px;display:inline-block;">
-       🙏 Quero essa transformação
-    </a>
-
-  </div>
-</section>
-  
-<section style="padding-bottom:60px;">
-<h2>E se existisse uma forma simples de mudar isso?</h2>
-<div class="benefits">
-<div class="benefit">🎨 Prende a atenção por horas — sem tela, sem briga, sem estresse</div>
-<div class="benefit">❤️ Seu filho aprende sobre Deus enquanto se diverte — sem nem perceber</div>
-<div class="benefit">👨‍👩‍👦 Cria momentos reais entre pais, responsáveis e crianças</div>
-</div>
-</section>
-
-<section class="product-reveal">
-<div class="container">
-  <div class="product-tag">✨ Conheça o produto</div>
-  <h2 style="font-size:28px;">Colorindo com Deus 🎨✝️</h2>
-<p class="product-desc">
-Uma forma simples e divertida de tirar seu filho das telas enquanto ele aprende sobre Deus, desenvolve a criatividade e cria momentos especiais em família ❤️
-</p>
-  <div class="product-features">
-    <div class="pf-card"><div class="pf-icon">🖍️</div><div><strong>Ideal para crianças de 3 a 10 anos</strong><p>Ilustrações com traços simples e divertidos — conteúdo bíblico pensado especialmente para crianças</p></div></div>
-    <div class="pf-card"><div class="pf-icon">📖</div><div><strong>Versículos em cada página</strong><p>Cada desenho vem acompanhado de um versículo bíblico simples e marcante</p></div></div>
-    <div class="pf-card"><div class="pf-icon">🎀</div><div><strong>Estilo moderno, fofo e encantador</strong><p>Personagens expressivos com muito charme — as crianças se apaixonam na primeira página</p></div></div>
-    <div class="pf-card"><div class="pf-icon">📲</div><div><strong>Digital — acesso imediato</strong><p>Baixe agora, imprima quantas vezes quiser e use em casa, no carro ou na escola dominical</p></div></div>
-  </div>
-  <a href="https://pay.kiwify.com.br/MjZtzPT" class="cta" target="_blank" style="margin-top:40px;display:inline-block;">🔥 Quero o livro por R$9,90 agora</a>
-</div>
-</section>
-
-<section class="preview-section">
-  <h2>Veja como são os desenhos por dentro 👇</h2>
-  <p style="color:#1a4fa0;font-weight:700;margin-top:-10px;margin-bottom:20px;">
-✨ As crianças se apaixonam logo nas primeiras páginas
-</p>
-  <p class="preview-sub">Páginas simples, bonitas e pensadas para prender a atenção da criança</p>
-  <div class="preview-wrapper">
-    <button class="preview-btn left" id="previewPrev" aria-label="Anterior">&#10094;</button>
-    <div class="preview-carousel-container">
-      <div class="preview-carousel" id="previewCarousel">
-        <div class="preview-slide"><img src="adao-eva.jpg" alt="Desenho de Adão e Eva para colorir" width="320" height="426" loading="lazy"></div>
-        <div class="preview-slide"><img src="arca-noe.jpg" alt="Desenho Arca de Noé para colorir" width="320" height="426" loading="lazy"></div>
-        <div class="preview-slide"><img src="moises-mar.jpg" alt="Desenho Moisés Mar Vermelho para colorir" width="320" height="426" loading="lazy"></div>
-        <div class="preview-slide"><img src="cova-leoes.jpg" alt="Desenho Daniel na Cova dos Leões para colorir" width="320" height="426" loading="lazy"></div>
+      <div class="hero-product" aria-label="Produto Colorindo com Deus">
+        <img src="CRIATIVO.png" alt="Capa e páginas do Colorindo com Deus" width="768" height="1152" loading="eager">
+        <div class="product-seal">100%<span>digital</span></div>
       </div>
     </div>
-    <button class="preview-btn right" id="previewNext" aria-label="Próximo">&#10095;</button>
-   <div class="preview-dots" id="previewDots">
-  <span class="preview-dot active"></span>
-  <span class="preview-dot"></span>
-  <span class="preview-dot"></span>
-  <span class="preview-dot"></span>
-</div>
-  </div>
-</section>
+  </section>
 
-<script>
-(function(){const c=document.getElementById('previewCarousel');const d=document.querySelectorAll('#previewDots .preview-dot');const p=document.getElementById('previewPrev');const n=document.getElementById('previewNext');const t=4;let r=0,sX=0,iD=false,dD=0;let aP;function gT(i){r=(i+t)%t;c.style.transform='translateX(-'+(r*100)+'%)';d.forEach((x,j)=>x.classList.toggle('active',j===r))}function sA(){aP=setInterval(()=>{gT(r+1)},3500)}function rA(){clearInterval(aP);sA()}p.addEventListener('click',()=>{gT(r-1);rA()});n.addEventListener('click',()=>{gT(r+1);rA()});d.forEach((dot,i)=>{dot.addEventListener('click',()=>{gT(i);rA()})});c.addEventListener('touchstart',e=>{sX=e.touches[0].clientX;clearInterval(aP)},{passive:true});c.addEventListener('touchend',e=>{const diff=sX-e.changedTouches[0].clientX;if(Math.abs(diff)>40)gT(diff>0?r+1:r-1);sA()});c.addEventListener('mousedown',e=>{iD=true;sX=e.clientX;c.style.transition='none';clearInterval(aP)});window.addEventListener('mousemove',e=>{if(!iD)return;dD=sX-e.clientX});window.addEventListener('mouseup',()=>{if(!iD)return;iD=false;c.style.transition='transform 0.4s ease';if(Math.abs(dD)>40)gT(dD>0?r+1:r-1);else gT(r);dD=0;sA()});sA()})();
-</script>
-
-<section class="dm-section">
-<h2>Veja o que estão dizendo 👇</h2>
-<p style="color:#5a6a8a;margin-top:-10px;margin-bottom:36px;font-size:14px;">Mensagens reais de pais, mães e professores que viram o story</p>
-
-<div class="dm-carousel-wrap" style="position:relative;">
-  <div class="dm-carousel" id="dmCarousel">
-
-    <div class="ig-dm">
-      <div class="ig-dm-header"><div class="ig-avatar-wrap"><img src="https://i.pravatar.cc/40?img=47" class="ig-avatar" alt="Foto Ana" width="38" height="38" loading="lazy"><span class="ig-online"></span></div><div class="ig-user-info"><strong>Ana Paula Silva</strong><span>online agora</span></div></div>
-      <div class="ig-dm-body"><div class="ig-time">Hoje 10:42</div><div class="ig-story-reply"><span class="ig-story-label">Respondeu ao seu story</span><img src="CRIATIVO.png" class="ig-story-thumb" alt="story" width="72" height="128" loading="lazy"></div><div class="ig-bubble-wrap"><img src="https://i.pravatar.cc/28?img=47" class="ig-bubble-avatar" alt="av" width="26" height="26" loading="lazy"><div class="ig-bubble">Oii, vi seu story agora 😱<br>meu filho tá VICIADO no celular, sério...<br>comprei e ele ficou a tarde toda colorindo, não acreditei!</div></div><div class="ig-heart">❤️</div></div>
+  <section class="section problem">
+    <div class="narrow">
+      <h2 class="section-title">Talvez você só queira uma alternativa simples para hoje.</h2>
+      <p class="section-copy">Sem briga, sem culpa pesada e sem precisar inventar uma atividade do zero. Só imprimir, colocar na mesa e viver um momento mais calmo com a criança.</p>
     </div>
-
-    <div class="ig-dm">
-      <div class="ig-dm-header"><div class="ig-avatar-wrap"><img src="https://i.pravatar.cc/40?img=32" class="ig-avatar" alt="Foto Juliana" width="38" height="38" loading="lazy"><span class="ig-online"></span></div><div class="ig-user-info"><strong>Juliana Mendes</strong><span>Online agora</span></div></div>
-      <div class="ig-dm-body"><div class="ig-time">Hoje 11:15</div><div class="ig-bubble-wrap"><img src="https://i.pravatar.cc/28?img=32" class="ig-bubble-avatar" alt="av" width="26" height="26" loading="lazy"><div class="ig-bubble">Amg, isso é MUITO bom!!<br><br>minha filha largou o celular e ficou horas colorindo. Ela ainda leu os versículos pra mim 😭🙏<br><br>melhor R$9,90 que já gastei!!</div></div><div class="ig-heart">❤️</div></div>
+    <div class="container pain-grid">
+      <article class="pain-card">
+        <b>Quando a tela vira a resposta para tudo</b>
+        <p>A criança pede celular, fica irritada quando precisa parar e a rotina vai ficando mais difícil.</p>
+      </article>
+      <article class="pain-card">
+        <b>Quando falta uma atividade pronta</b>
+        <p>Você até quer fazer algo diferente, mas nem sempre sobra tempo para preparar material.</p>
+      </article>
+      <article class="pain-card">
+        <b>Quando a fé precisa entrar na rotina</b>
+        <p>Ensinar sobre Deus pode ser simples, leve e próximo do dia a dia da família.</p>
+      </article>
     </div>
+  </section>
 
-    <div class="ig-dm">
-      <div class="ig-dm-header"><div class="ig-avatar-wrap"><img src="https://i.pravatar.cc/40?img=20" class="ig-avatar" alt="Foto Carla" width="38" height="38" loading="lazy"><span class="ig-online"></span></div><div class="ig-user-info"><strong>Carla Oliveira</strong><span>online agora</span></div></div>
-      <div class="ig-dm-body"><div class="ig-time">Hoje 09:48</div><div class="ig-bubble-wrap"><img src="https://i.pravatar.cc/28?img=20" class="ig-bubble-avatar" alt="av" width="26" height="26" loading="lazy"><div class="ig-bubble">Usei na escola dominical e as crianças AMARAM 😍<br><br>ficaram super envolvidas, cada um queria colorir o seu<br><br>já mandei pra todas as mães da turma!</div></div><div class="ig-heart">❤️</div></div>
+  <section class="section bridge">
+    <div class="container bridge-box">
+      <div class="compare before">
+        <h3>Antes</h3>
+        <ul>
+          <li>Horas no celular</li>
+          <li>Discussão para desligar a tela</li>
+          <li>Poucas atividades offline prontas</li>
+          <li>Sensação de distanciamento</li>
+        </ul>
+      </div>
+      <div class="compare after">
+        <h3>Depois</h3>
+        <ul>
+          <li>Uma folha bíblica na mesa</li>
+          <li>Mais foco, cor e criatividade</li>
+          <li>Um momento com Deus na rotina</li>
+          <li>Atividade pronta para repetir quando quiser</li>
+        </ul>
+      </div>
     </div>
+  </section>
 
-    <div class="ig-dm">
-      <div class="ig-dm-header"><div class="ig-avatar-wrap"><img src="https://i.pravatar.cc/40?img=68" class="ig-avatar" alt="Foto Ricardo" width="38" height="38" loading="lazy"><span class="ig-online"></span></div><div class="ig-user-info"><strong>Ricardo Alves</strong><span>online agora</span></div></div>
-      <div class="ig-dm-body"><div class="ig-time">Hoje 12:02</div><div class="ig-bubble-wrap"><img src="https://i.pravatar.cc/28?img=68" class="ig-bubble-avatar" alt="av" width="26" height="26" loading="lazy"><div class="ig-bubble">Cara, comprei pra minha filha e não esperava que ia funcionar tanto 👀<br><br>ela ficou a tarde inteira colorindo e ainda ficou me perguntando sobre os versículos<br><br>como pai, isso me deixou muito feliz 🙏</div></div><div class="ig-heart">❤️</div></div>
+  <section class="section product-section">
+    <div class="container product-layout">
+      <div class="product-shot">
+        <img src="CRIATIVO.png" alt="Mockup do livro Colorindo com Deus com páginas internas" width="768" height="1152" loading="lazy">
+      </div>
+      <div>
+        <div class="eyebrow">Conheça o produto</div>
+        <h2 class="section-title" style="margin-top:18px">Colorindo com Deus</h2>
+        <p class="section-copy">Um PDF bíblico infantil com desenhos para colorir e versículos simples, feito para crianças de 3 a 10 anos e pensado para momentos de paz, fé e criatividade.</p>
+        <div class="feature-grid">
+          <article class="feature">
+            <b>Pronto para imprimir</b>
+            <p>Receba o material digitalmente e use hoje, sem esperar entrega.</p>
+          </article>
+          <article class="feature">
+            <b>Versículos simples</b>
+            <p>Cada página aproxima a criança da Palavra de Deus de um jeito leve.</p>
+          </article>
+          <article class="feature">
+            <b>Para casa e igreja</b>
+            <p>Funciona na rotina da família, escola dominical, catequese e ministério infantil.</p>
+          </article>
+          <article class="feature">
+            <b>Imprima quantas vezes quiser</b>
+            <p>Use novamente com filhos, alunos, turmas e momentos diferentes.</p>
+          </article>
+        </div>
+        <div style="margin-top:30px">
+          <a href="https://pay.kiwify.com.br/MjZtzPT" class="cta secondary" target="_blank" rel="noopener">Garantir acesso por R$9,90</a>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="ig-dm">
-      <div class="ig-dm-header"><div class="ig-avatar-wrap"><img src="https://i.pravatar.cc/40?img=9" class="ig-avatar" alt="Foto Letícia" width="38" height="38" loading="lazy"><span class="ig-online"></span></div><div class="ig-user-info"><strong>Letícia Santos</strong><span>online agora</span></div></div>
-      <div class="ig-dm-body"><div class="ig-time">Hoje 13:27</div><div class="ig-bubble-wrap"><img src="https://i.pravatar.cc/28?img=9" class="ig-bubble-avatar" alt="av" width="26" height="26" loading="lazy"><div class="ig-bubble">Comprei!! 😍<br>sério, foi a melhor coisa que fiz<br><br>minha filha ficou mó tempão colorindo e nem pediu celular hoje — e ainda ficou repetindo o versículo 🙏❤️</div></div><div class="ig-heart">❤️</div></div>
+  <section class="section preview">
+    <div class="narrow">
+      <h2 class="section-title">Veja algumas páginas por dentro</h2>
+      <p class="section-copy">Desenhos bíblicos com traços simples, bonitos e fáceis de colorir.</p>
     </div>
+    <div class="container preview-grid">
+      <figure class="preview-item">
+        <img src="adao-eva.jpg" alt="Página para colorir de Adão e Eva" width="320" height="426" loading="lazy">
+      </figure>
+      <figure class="preview-item">
+        <img src="arca-noe.jpg" alt="Página para colorir da Arca de Noé" width="320" height="426" loading="lazy">
+      </figure>
+      <figure class="preview-item">
+        <img src="moises-mar.jpg" alt="Página para colorir de Moisés e o Mar Vermelho" width="320" height="426" loading="lazy">
+      </figure>
+      <figure class="preview-item">
+        <img src="cova-leoes.jpg" alt="Página para colorir de Daniel na cova dos leões" width="320" height="426" loading="lazy">
+      </figure>
+    </div>
+  </section>
 
-  </div>
+  <section class="section use-cases">
+    <div class="narrow" style="text-align:center">
+      <h2 class="section-title">Use onde a criança realmente está</h2>
+      <p class="section-copy">A proposta é simples: uma atividade cristã pronta para entrar na rotina sem complicar.</p>
+    </div>
+    <div class="container use-grid">
+      <article class="use-card">
+        <div class="use-icon">⌂</div>
+        <h3>Em casa</h3>
+        <p>Para tardes mais calmas, momentos em família e pausas saudáveis longe das telas.</p>
+      </article>
+      <article class="use-card">
+        <div class="use-icon">✝</div>
+        <h3>Na escola dominical</h3>
+        <p>Material pronto para complementar aulas, histórias bíblicas e atividades com a turma.</p>
+      </article>
+      <article class="use-card">
+        <div class="use-icon">☼</div>
+        <h3>Na rotina corrida</h3>
+        <p>Quando você precisa de algo simples, bonito e com propósito para usar no mesmo dia.</p>
+      </article>
+    </div>
+  </section>
 
-  <div class="dm-dots" id="dmDots">
-    <span class="dm-dot active"></span><span class="dm-dot"></span><span class="dm-dot"></span><span class="dm-dot"></span><span class="dm-dot"></span>
-  </div>
-</div>
-<div style="margin-top:44px;"><a href="https://pay.kiwify.com.br/MjZtzPT" class="cta" target="_blank">🙏 Quero meu filho longe do celular</a></div>
-</section>
+  <section class="section testimonials">
+    <div class="narrow" style="text-align:center">
+      <h2 class="section-title">O que pais e professoras costumam procurar</h2>
+      <p class="section-copy">Uma solução pequena, acessível e pronta, mas que ajuda a criar um momento com mais presença.</p>
+    </div>
+    <div class="container testimonial-grid">
+      <article class="testimonial">
+        <p>"Eu queria uma atividade que não fosse só ocupar tempo. Queria algo com fé, simples e bonito para fazer com minha filha."</p>
+        <strong>Mãe cristã</strong>
+        <span>uso em casa</span>
+      </article>
+      <article class="testimonial">
+        <p>"Para escola dominical, ajuda muito ter desenhos bíblicos prontos. É imprimir e já usar com as crianças."</p>
+        <strong>Professora infantil</strong>
+        <span>uso em aula</span>
+      </article>
+      <article class="testimonial">
+        <p>"O melhor é poder repetir. Se a criança gostou de uma página, eu imprimo de novo sem complicação."</p>
+        <strong>Responsável</strong>
+        <span>material digital</span>
+      </article>
+    </div>
+  </section>
 
-<script>
-(function(){const c=document.getElementById('dmCarousel');const d=document.querySelectorAll('#dmDots .dm-dot');const t=5;let curr=0;let sX=0;let iD=false;let dD=0;function gT(idx){curr=(idx+t)%t;c.style.transform='translateX(-'+(curr*100)+'%)';d.forEach((x,i)=>x.classList.toggle('active',i===curr))}c.addEventListener('touchstart',e=>{sX=e.touches[0].clientX},{passive:true});c.addEventListener('touchend',e=>{const diff=sX-e.changedTouches[0].clientX;if(Math.abs(diff)>40)gT(diff>0?curr+1:curr-1)});c.addEventListener('mousedown',e=>{iD=true;sX=e.clientX;c.style.transition='none'});window.addEventListener('mousemove',e=>{if(!iD)return;dD=sX-e.clientX});window.addEventListener('mouseup',()=>{if(!iD)return;iD=false;c.style.transition='transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94)';if(Math.abs(dD)>40)gT(dD>0?curr+1:curr-1);else gT(curr);dD=0});setInterval(()=>gT(curr+1),4000)})();
-</script>
+  <section class="section guarantee">
+    <div class="container guarantee-card">
+      <div>
+        <h2 class="section-title">Teste sem risco por 7 dias</h2>
+        <p>Se o Colorindo com Deus não fizer sentido para sua rotina, você pode pedir reembolso dentro do prazo de garantia. Simples assim.</p>
+      </div>
+      <a href="https://pay.kiwify.com.br/MjZtzPT" class="cta" target="_blank" rel="noopener">Quero testar hoje</a>
+    </div>
+  </section>
 
-<section style="padding-top:36px;">
-<div class="guarantee">
-  <p style="font-size:15px;color:#1a4fa0;font-weight:700;margin-bottom:10px;">
-❤️ Você não corre nenhum risco
-</p>
-<h3>🛡️ Garantia de 7 dias</h3>
-<p>Teste hoje mesmo. Se não gostar, devolvemos 100% do seu dinheiro. Sem risco.</p>
-</div>
-</section>
+  <section class="trust-bar" aria-label="Informações de confiança">
+    <div class="container trust-grid">
+      <div class="trust-item">Compra segura</div>
+      <div class="trust-item">Acesso imediato</div>
+      <div class="trust-item">100% digital</div>
+      <div class="trust-item">Baixe e imprima</div>
+    </div>
+  </section>
 
-<section class="trust-bar">
-<div class="trust-grid">
-  <div class="trust-item"><div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><span>Compra Segura</span></div>
-  <div class="trust-item"><div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><span>Acesso Imediato</span></div>
-  <div class="trust-item"><div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="12" y2="15"/></svg></div><span>100% Digital</span></div>
-  <div class="trust-item"><div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg></div><span>Baixe e Imprima</span></div>
-</div>
-</section>
-
-  <section style="background:#fff;padding:60px 20px 30px;">
-  <div class="container" style="max-width:700px;text-align:center;">
-    
-    <h2 style="font-size:32px;margin-bottom:24px;">
-      Daqui alguns anos...
-    </h2>
-
-    <p style="font-size:18px;line-height:1.8;color:#5a6a8a;max-width:580px;margin:0 auto;">
-      Seu filho provavelmente não vai lembrar dos vídeos que assistiu no celular.
-    </p>
-
-   <p style="font-size:22px;font-weight:700;line-height:1.7;color:#1a2340;margin:29px auto 0;display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;text-align:center;">
-  <span>Mas ele pode lembrar dos momentos que passou com você</span>
-  <span>❤️</span>
-</p>
-
-  </div>
-<section style="text-align:center;padding-top:20px;">
-  <h2>Seu filho merece mais do que uma tela</h2>
- <div style="display:flex;justify-content:center;margin:70px 0 20px;">
-<a href="https://pay.kiwify.com.br/MjZtzPT" class="cta" target="_blank">🔥 Garantir acesso agora por R$9,90</a>
-</section>
-
-<section style="padding-bottom:60px;">
-<h2>Ficou com dúvidas?</h2>
-<a href="https://wa.me/5515996456543?text=Olá,+tenho+uma+dúvida+sobre+o+Colorindo+com+Deus" class="whatsapp">💬 Fale comigo no WhatsApp</a>
-</section>
+  <section class="section final">
+    <div class="narrow">
+      <h2 class="section-title">Seu filho merece mais do que uma tela.</h2>
+      <p class="section-copy">Por R$9,90, você recebe uma atividade bíblica pronta para imprimir e usar hoje.</p>
+      <div style="margin-top:30px">
+        <a href="https://pay.kiwify.com.br/MjZtzPT" class="cta" target="_blank" rel="noopener">Garantir acesso agora por R$9,90</a>
+      </div>
+      <div style="margin-top:34px">
+        <p class="section-copy" style="font-size:16px">Ficou com dúvidas?</p>
+        <a href="https://wa.me/5515996456543?text=Olá,+tenho+uma+dúvida+sobre+o+Colorindo+com+Deus" class="wa-link" target="_blank" rel="noopener">Fale comigo no WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</main>
 
 <div class="fixed-cta">
-  <a href="https://pay.kiwify.com.br/MjZtzPT" class="cta" target="_blank">🙏 Quero meu filho longe do celular</a>
+  <a href="https://pay.kiwify.com.br/MjZtzPT" class="cta" target="_blank" rel="noopener">Garantir por R$9,90</a>
 </div>
-
-<script>
-let tempo=3600;setInterval(()=>{let m=Math.floor(tempo/60);let s=tempo%60;document.getElementById("countdown").innerHTML=String(m).padStart(2,'0')+":"+String(s).padStart(2,'0');if(tempo>0)tempo--;},1000);
-</script>
-
 </body>
 </html>
