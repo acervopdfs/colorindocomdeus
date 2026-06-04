@@ -70,6 +70,8 @@ a{color:inherit}
   line-height:1.65;
 }
 .cta{
+  position:relative;
+  overflow:hidden;
   display:inline-flex;
   align-items:center;
   justify-content:center;
@@ -89,11 +91,30 @@ a{color:inherit}
   white-space:normal;
   transition:transform .18s ease,box-shadow .18s ease;
 }
+.cta:before{
+  content:"";
+  position:absolute;
+  top:-40%;
+  bottom:-40%;
+  left:-55%;
+  width:42%;
+  background:linear-gradient(115deg,transparent,rgba(255,255,255,.72),transparent);
+  transform:skewX(-18deg);
+  animation:goldShine 3.6s ease-in-out infinite;
+  pointer-events:none;
+}
+.cta span,
+.cta strong{position:relative;z-index:1}
 .cta:hover{transform:translateY(-2px);box-shadow:0 20px 40px rgba(216,155,22,.34), inset 0 -3px 0 rgba(216,155,22,.25)}
 .cta.secondary{
-  background:var(--blue);
-  color:var(--white);
-  box-shadow:0 16px 34px rgba(46,79,138,.26), inset 0 -3px 0 rgba(0,0,0,.12);
+  background:linear-gradient(135deg,var(--gold),#FFE179);
+  color:var(--blue-dark);
+  box-shadow:0 16px 34px rgba(216,155,22,.28), inset 0 -3px 0 rgba(216,155,22,.25);
+}
+@keyframes goldShine{
+  0%,42%{left:-55%;opacity:0}
+  52%{opacity:.9}
+  68%,100%{left:115%;opacity:0}
 }
 .hero{
   position:relative;
@@ -512,7 +533,7 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
         <h1>Seu filho só quer celular… <span>e você já não aguenta mais isso?</span></h1>
         <p class="hero-sub">Uma atividade bíblica pronta para imprimir, colorir e transformar alguns minutos do dia em um momento com Deus.</p>
         <div class="hero-actions">
-          <a href="https://pay.kiwify.com.br/MjZtzPT" class="cta" target="_blank" rel="noopener">Quero o Colorindo com Deus</a>
+          <a href="https://pay.kiwify.com.br/MjZtzPT" class="cta" target="_blank" rel="noopener"><span>Quero o Colorindo com Deus</span></a>
           <div class="price-card">
             <small>De <del>R$29,90</del> por</small>
             <strong>R$9,90</strong>
@@ -603,7 +624,7 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
           </article>
         </div>
         <div style="margin-top:30px">
-          <a href="https://pay.kiwify.com.br/MjZtzPT" class="cta secondary" target="_blank" rel="noopener">Garantir acesso por R$9,90</a>
+          <a href="https://pay.kiwify.com.br/MjZtzPT" class="cta secondary" target="_blank" rel="noopener"><span>Garantir acesso por R$9,90</span></a>
         </div>
       </div>
     </div>
@@ -684,7 +705,7 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
         <h2 class="section-title">Teste sem risco por 7 dias</h2>
         <p>Se o Colorindo com Deus não fizer sentido para sua rotina, você pode pedir reembolso dentro do prazo de garantia. Simples assim.</p>
       </div>
-      <a href="https://pay.kiwify.com.br/MjZtzPT" class="cta" target="_blank" rel="noopener">Quero testar hoje</a>
+      <a href="https://pay.kiwify.com.br/MjZtzPT" class="cta" target="_blank" rel="noopener"><span>Quero testar hoje</span></a>
     </div>
   </section>
 
@@ -702,7 +723,7 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
       <h2 class="section-title">Seu filho merece mais do que uma tela.</h2>
       <p class="section-copy">Por R$9,90, você recebe uma atividade bíblica pronta para imprimir e usar hoje.</p>
       <div style="margin-top:30px">
-        <a href="https://pay.kiwify.com.br/MjZtzPT" class="cta" target="_blank" rel="noopener">Garantir acesso agora por R$9,90</a>
+        <a href="https://pay.kiwify.com.br/MjZtzPT" class="cta" target="_blank" rel="noopener"><span>Garantir acesso agora por R$9,90</span></a>
       </div>
       <div style="margin-top:34px">
         <p class="section-copy" style="font-size:16px">Ficou com dúvidas?</p>
@@ -713,7 +734,7 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
 </main>
 
 <div class="fixed-cta">
-  <a href="https://pay.kiwify.com.br/MjZtzPT" class="cta" target="_blank" rel="noopener">Garantir por R$9,90</a>
+  <a href="https://pay.kiwify.com.br/MjZtzPT" class="cta" target="_blank" rel="noopener"><span>Garantir por R$9,90</span></a>
 </div>
 </body>
 </html>
