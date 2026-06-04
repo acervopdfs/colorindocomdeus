@@ -238,6 +238,7 @@ a{color:inherit}
   box-shadow:0 28px 80px rgba(23,52,97,.25);
   animation:gentleFloat 5.4s ease-in-out infinite;
 }
+.hero-product-mobile{display:none}
 .hero-product:before{
   content:"";
   position:absolute;
@@ -603,7 +604,17 @@ a{color:inherit}
   .hero-content{display:flex;flex-direction:column}
   .hero h1{font-size:38px}
   .hero-sub{font-size:18px}
-  .hero-product{order:2;padding:14px;border-radius:24px}
+  .hero-grid > .hero-product{display:none}
+  .hero-product-mobile{
+    display:block;
+    order:2;
+    width:min(330px,100%);
+    margin:0 auto 22px;
+    padding:12px;
+    border-radius:24px;
+  }
+  .hero-product-mobile:before{inset:14px -12px -12px 30px;border-radius:24px}
+  .hero-product-mobile img{max-height:330px;border-radius:16px}
   .hero-actions{display:flex;flex-direction:column;order:3}
   .hero-actions .price-card{order:1}
   .hero-actions .cta{order:2}
@@ -645,6 +656,11 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
         <div class="eyebrow">Colorindo com Deus | PDF bíblico imprimível</div>
         <h1>Seu filho só quer celular… <span>e você já não aguenta mais isso?</span></h1>
         <p class="hero-sub">Uma atividade bíblica pronta para imprimir, colorir e transformar alguns minutos do dia em um momento com Deus.</p>
+        <div class="hero-product hero-product-mobile" aria-label="Produto Colorindo com Deus">
+          <span class="hero-sparkle one" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z"/><path d="M19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8L19 16z"/></svg></span>
+          <span class="hero-sparkle two" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4v4"/><path d="M12 16v4"/><path d="M4 12h4"/><path d="M16 12h4"/><path d="M6.3 6.3l2.8 2.8"/><path d="M14.9 14.9l2.8 2.8"/><path d="M17.7 6.3l-2.8 2.8"/><path d="M9.1 14.9l-2.8 2.8"/></svg></span>
+          <img src="CRIATIVO.png" alt="Capa e páginas do Colorindo com Deus" width="768" height="1152" loading="eager">
+        </div>
         <div class="hero-actions">
           <a href="https://pay.kiwify.com.br/MjZtzPT" class="cta" target="_blank" rel="noopener"><span>Quero o Colorindo com Deus</span></a>
           <div class="price-card">
