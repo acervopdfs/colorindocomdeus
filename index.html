@@ -102,20 +102,25 @@ a{color:inherit}
   align-items:center;
   justify-content:center;
   gap:10px;
-  min-height:58px;
+  min-height:64px;
   border:0;
   border-radius:999px;
-  padding:17px 28px;
+  padding:19px 34px;
   background:linear-gradient(135deg,var(--gold),#FFE179);
   color:var(--blue-dark);
   box-shadow:0 16px 34px rgba(216,155,22,.28), inset 0 -3px 0 rgba(216,155,22,.25);
   font-family:'Fredoka',Arial,sans-serif;
-  font-size:18px;
+  font-size:20px;
   font-weight:700;
   text-align:center;
   text-decoration:none;
   white-space:normal;
   transition:transform .18s ease,box-shadow .18s ease;
+}
+.hero .cta{
+  min-height:70px;
+  padding:22px 42px;
+  font-size:22px;
 }
 .cta:before{
   content:"";
@@ -367,20 +372,25 @@ a{color:inherit}
   background:var(--white);
   text-align:center;
 }
-.preview-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:22px;
-  margin-top:34px;
-  max-width:760px;
-  margin-left:auto;
-  margin-right:auto;
+.preview-carousel-wrap{
+  position:relative;
+  max-width:420px;
+  margin:34px auto 0;
+}
+.preview-carousel-window{
+  overflow:hidden;
+  border-radius:30px;
+}
+.preview-track{
+  display:flex;
+  transition:transform .35s ease;
 }
 .preview-item{
+  min-width:100%;
   border:1px solid rgba(46,79,138,.12);
-  border-radius:22px;
+  border-radius:30px;
   background:var(--cream);
-  padding:12px;
+  padding:18px;
   box-shadow:0 14px 32px rgba(46,79,138,.08);
   transition:transform .18s ease,box-shadow .18s ease;
 }
@@ -389,9 +399,45 @@ a{color:inherit}
   width:100%;
   aspect-ratio:3/4;
   object-fit:contain;
-  border-radius:14px;
+  border-radius:20px;
   background:var(--white);
 }
+.preview-nav{
+  position:absolute;
+  top:50%;
+  width:46px;
+  height:46px;
+  border:0;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,var(--gold),#FFE179);
+  color:var(--blue-dark);
+  box-shadow:0 14px 28px rgba(216,155,22,.26);
+  cursor:pointer;
+  transform:translateY(-50%);
+  z-index:2;
+}
+.preview-nav svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.preview-nav.prev{left:-23px}
+.preview-nav.next{right:-23px}
+.preview-dots{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  margin-top:18px;
+}
+.preview-dot{
+  width:9px;
+  height:9px;
+  border:0;
+  border-radius:999px;
+  background:#C8D8EC;
+  cursor:pointer;
+  transition:width .18s ease,background .18s ease;
+}
+.preview-dot.active{width:26px;background:var(--blue)}
 .use-cases{
   background:linear-gradient(180deg,#F7FBFF,var(--cream));
 }
@@ -527,7 +573,7 @@ a{color:inherit}
   .hero-product{width:min(420px,100%);margin:0 auto}
   .pain-grid,.use-grid,.testimonial-grid{grid-template-columns:1fr}
   .feature-grid{grid-template-columns:repeat(2,1fr)}
-  .preview-grid{grid-template-columns:repeat(2,1fr)}
+  .preview-carousel-wrap{max-width:390px}
   .trust-grid{grid-template-columns:repeat(2,1fr)}
   .guarantee-card{text-align:center}
 }
@@ -539,9 +585,13 @@ a{color:inherit}
   .hero h1{font-size:38px}
   .hero-sub{font-size:18px}
   .hero-product{padding:14px;border-radius:24px}
-  .feature-grid,.preview-grid,.trust-grid{grid-template-columns:1fr}
-  .preview-item{max-width:320px;margin:0 auto}
-  .cta{width:100%;font-size:17px;padding-left:18px;padding-right:18px}
+  .feature-grid,.trust-grid{grid-template-columns:1fr}
+  .preview-carousel-wrap{max-width:min(330px,100% - 20px)}
+  .preview-nav{width:40px;height:40px}
+  .preview-nav.prev{left:-12px}
+  .preview-nav.next{right:-12px}
+  .cta{width:100%;font-size:18px;padding-left:20px;padding-right:20px}
+  .hero .cta{min-height:66px;font-size:20px;padding:20px 24px}
   .price-card{width:100%;align-items:center}
   .fixed-cta{display:block}
 }
@@ -681,19 +731,35 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
       <h2 class="section-title">Veja algumas páginas por dentro</h2>
       <p class="section-copy">Desenhos bíblicos com traços simples, bonitos e fáceis de colorir.</p>
     </div>
-    <div class="container preview-grid">
-      <figure class="preview-item">
-        <img src="adao-eva.jpg" alt="Página para colorir de Adão e Eva" width="320" height="426" loading="lazy">
-      </figure>
-      <figure class="preview-item">
-        <img src="arca-noe.jpg" alt="Página para colorir da Arca de Noé" width="320" height="426" loading="lazy">
-      </figure>
-      <figure class="preview-item">
-        <img src="moises-mar.jpg" alt="Página para colorir de Moisés e o Mar Vermelho" width="320" height="426" loading="lazy">
-      </figure>
-      <figure class="preview-item">
-        <img src="cova-leoes.jpg" alt="Página para colorir de Daniel na cova dos leões" width="320" height="426" loading="lazy">
-      </figure>
+    <div class="preview-carousel-wrap" aria-label="Carrossel de páginas internas">
+      <button class="preview-nav prev" type="button" aria-label="Página anterior" data-preview-prev>
+        <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <div class="preview-carousel-window">
+        <div class="preview-track" data-preview-track>
+          <figure class="preview-item">
+            <img src="adao-eva.jpg" alt="Página para colorir de Adão e Eva" width="320" height="426" loading="lazy">
+          </figure>
+          <figure class="preview-item">
+            <img src="arca-noe.jpg" alt="Página para colorir da Arca de Noé" width="320" height="426" loading="lazy">
+          </figure>
+          <figure class="preview-item">
+            <img src="moises-mar.jpg" alt="Página para colorir de Moisés e o Mar Vermelho" width="320" height="426" loading="lazy">
+          </figure>
+          <figure class="preview-item">
+            <img src="cova-leoes.jpg" alt="Página para colorir de Daniel na cova dos leões" width="320" height="426" loading="lazy">
+          </figure>
+        </div>
+      </div>
+      <button class="preview-nav next" type="button" aria-label="Próxima página" data-preview-next>
+        <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+      <div class="preview-dots" aria-hidden="true">
+        <button class="preview-dot active" type="button" data-preview-dot="0"></button>
+        <button class="preview-dot" type="button" data-preview-dot="1"></button>
+        <button class="preview-dot" type="button" data-preview-dot="2"></button>
+        <button class="preview-dot" type="button" data-preview-dot="3"></button>
+      </div>
     </div>
   </section>
 
@@ -782,5 +848,24 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
 <div class="fixed-cta">
   <a href="https://pay.kiwify.com.br/MjZtzPT" class="cta" target="_blank" rel="noopener"><span>Garantir por R$9,90</span></a>
 </div>
+<script>
+(() => {
+  const track = document.querySelector('[data-preview-track]');
+  const dots = [...document.querySelectorAll('[data-preview-dot]')];
+  const prev = document.querySelector('[data-preview-prev]');
+  const next = document.querySelector('[data-preview-next]');
+  if (!track || !prev || !next || dots.length === 0) return;
+  let current = 0;
+  const total = dots.length;
+  const goTo = (index) => {
+    current = (index + total) % total;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === current));
+  };
+  prev.addEventListener('click', () => goTo(current - 1));
+  next.addEventListener('click', () => goTo(current + 1));
+  dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+})();
+</script>
 </body>
 </html>
