@@ -44,20 +44,30 @@ a{color:inherit}
 .announce-bar{
   background:var(--blue-dark);
   color:rgba(255,255,255,.92);
-  text-align:center;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center;
+  gap:4px 0;
   padding:11px 20px;
   font-size:13px;
   font-weight:800;
   letter-spacing:.02em;
-  line-height:1.4;
+  line-height:1.5;
+  text-align:center;
 }
-.announce-bar .sep{margin:0 10px;opacity:.4}
+.announce-bar .ai{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  white-space:nowrap;
+}
+.announce-bar .sep{margin:0 10px;opacity:.35}
 .announce-bar svg{
-  display:inline-block;
-  vertical-align:middle;
-  margin-right:5px;
-  margin-top:-2px;
-  opacity:.92;
+  flex-shrink:0;
+  width:13px;
+  height:13px;
+  opacity:.9;
 }
 
 .eyebrow{
@@ -240,6 +250,15 @@ a{color:inherit}
 }
 .price-card small{color:var(--muted);font-size:13px;font-weight:800}
 .price-card strong{color:var(--green);font-size:30px;line-height:1;font-weight:900}
+.value-anchor{
+  margin:10px auto 0;
+  max-width:320px;
+  font-size:13px;
+  font-weight:800;
+  color:var(--muted);
+  text-align:center;
+  opacity:.8;
+}
 .instant-note{
   display:flex;
   flex-wrap:wrap;
@@ -738,12 +757,21 @@ a{color:inherit}
   bottom:0;
   z-index:40;
   display:none;
-  padding:12px 14px;
-  background:rgba(255,249,240,.94);
-  backdrop-filter:blur(12px);
-  box-shadow:0 -10px 24px rgba(23,52,97,.14);
+  padding:10px 14px 14px;
+  background:rgba(255,249,240,.96);
+  backdrop-filter:blur(14px);
+  box-shadow:0 -10px 28px rgba(23,52,97,.16);
 }
-.fixed-cta .cta{width:100%;min-height:52px;font-size:16px;padding:14px 18px}
+.fixed-cta .cta{width:100%;min-height:60px;font-size:17px;padding:14px 18px}
+.fixed-sub{
+  margin:6px 0 0;
+  font-size:11px;
+  font-weight:800;
+  color:var(--muted);
+  text-align:center;
+  letter-spacing:.03em;
+  opacity:.85;
+}
 
 /* REDUCED MOTION */
 @media (prefers-reduced-motion:reduce){
@@ -770,7 +798,7 @@ a{color:inherit}
 
 /* RESPONSIVE 640px */
 @media (max-width:640px){
-  body{padding-bottom:78px}
+  body{padding-bottom:96px}
   .container,.narrow{width:min(100% - 28px,1120px)}
   .section{padding:52px 0}
   .hero{padding-top:22px}
@@ -805,7 +833,8 @@ a{color:inherit}
   .fixed-cta{display:block}
   .faq-q{font-size:15px;padding:16px 18px}
   .faq-a p{padding:0 18px 18px}
-  .announce-bar{font-size:12px}
+  .announce-bar{font-size:11px;gap:2px 0;padding:9px 12px}
+  .announce-bar .sep{margin:0 6px}
 }
 </style>
 
@@ -829,11 +858,11 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
 <body>
 
 <div class="announce-bar" role="banner">
-  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Checkout seguro
+  <span class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Checkout seguro</span>
   <span class="sep">·</span>
-  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Acesso imediato após pagamento
+  <span class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Acesso imediato</span>
   <span class="sep">·</span>
-  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>7 dias de garantia
+  <span class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>7 dias de garantia</span>
 </div>
 
 <main>
@@ -857,6 +886,7 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
             <small>acesso imediato</small>
           </div>
         </div>
+        <p class="value-anchor">Menos do que uma caixa de giz de cera. Imprime para sempre.</p>
         <ul class="instant-note" aria-label="Benefícios rápidos">
           <li>Baixe agora</li>
           <li>Imprima quantas vezes quiser</li>
@@ -1202,6 +1232,7 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
 
 <div class="fixed-cta">
   <a href="https://pay.kiwify.com.br/MjZtzPT" class="cta" target="_blank" rel="noopener"><span>Garantir por R$9,90</span></a>
+  <p class="fixed-sub">Acesso imediato &nbsp;·&nbsp; 7 dias de garantia</p>
 </div>
 
 <footer style="background:var(--cream);text-align:center;padding:18px 20px;border-top:1px solid rgba(46,79,138,.08)">
