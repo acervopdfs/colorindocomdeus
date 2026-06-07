@@ -565,42 +565,43 @@ a{color:inherit}
 .use-card h3{margin:0 0 10px;color:var(--blue-dark);font-size:21px}
 .use-card p{margin:0;color:var(--muted);line-height:1.55}
 
-/* EARLY ADOPTER */
-.early-adopter{
+/* O QUE VEM NO PDF */
+.what-inside{
   background:linear-gradient(180deg,var(--cream),#EEF7FF);
-  text-align:center;
 }
-.early-cards{
+.inside-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(2,1fr);
   gap:18px;
   margin-top:40px;
 }
-.early-card{
+.inside-item{
+  display:flex;
+  align-items:flex-start;
+  gap:18px;
   border:1px solid rgba(46,79,138,.12);
-  border-radius:24px;
+  border-radius:22px;
   background:var(--white);
-  padding:28px 22px;
-  text-align:center;
-  box-shadow:0 14px 34px rgba(46,79,138,.08);
+  padding:24px;
+  box-shadow:0 12px 28px rgba(46,79,138,.07);
   transition:transform .18s ease,box-shadow .18s ease;
 }
-.early-card:hover{transform:translateY(-3px);box-shadow:0 18px 38px rgba(46,79,138,.12)}
-.early-icon{
-  width:52px;
-  height:52px;
+.inside-item:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(46,79,138,.11)}
+.inside-icon{
+  flex-shrink:0;
+  width:48px;
+  height:48px;
   display:flex;
   align-items:center;
   justify-content:center;
-  margin:0 auto 16px;
-  border-radius:16px;
-  background:linear-gradient(135deg,var(--blue-soft),rgba(255,255,255,.9));
-  color:var(--blue);
-  box-shadow:0 10px 22px rgba(46,79,138,.1);
+  border-radius:14px;
+  background:linear-gradient(135deg,var(--gold),#FFE179);
+  color:var(--blue-dark);
+  box-shadow:0 8px 18px rgba(216,155,22,.22);
 }
-.early-icon svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.early-card b{display:block;color:var(--blue-dark);font-size:18px;margin-bottom:10px}
-.early-card p{margin:0;color:var(--muted);line-height:1.6;font-size:15px}
+.inside-icon svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.inside-item b{display:block;color:var(--blue-dark);font-size:17px;margin-bottom:6px}
+.inside-item p{margin:0;color:var(--muted);font-size:15px;line-height:1.6}
 
 /* GARANTIA */
 .guarantee{
@@ -785,7 +786,8 @@ a{color:inherit}
   .hero-actions .price-card{order:1}
   .hero-actions .cta{order:2}
   .instant-note{order:4}
-  .feature-grid,.trust-grid{grid-template-columns:1fr}
+  .feature-grid,.trust-grid,.inside-grid{grid-template-columns:1fr}
+  .inside-item{flex-direction:row}
   .preview-carousel-wrap{max-width:min(330px,100% - 20px)}
   .preview-nav{width:40px;height:40px}
   .preview-nav.prev{left:-12px}
@@ -1037,38 +1039,53 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
     </div>
   </section>
 
-  <!-- EARLY ADOPTER / SOCIAL PROOF HONESTO -->
-  <section class="section early-adopter">
-    <div class="narrow">
-      <div class="eyebrow">Produto novo. Garantia real.</div>
-      <h2 class="section-title" style="margin-top:18px">Sem avaliações exageradas.<br>Só uma promessa honesta.</h2>
-      <p class="section-copy">O Colorindo com Deus é um produto recente. Em vez de inventar números, preferimos ser diretos: você testa, coloca na mesa da criança — e se não fizer sentido para a sua rotina, devolvemos cada centavo.</p>
+  <!-- O QUE VEM NO PDF -->
+  <section class="section what-inside">
+    <div class="narrow" style="text-align:center">
+      <div class="eyebrow">O que você baixa hoje</div>
+      <h2 class="section-title" style="margin-top:18px">Tudo que vem no seu PDF</h2>
+      <p class="section-copy">Material completo, pronto para imprimir e usar no mesmo dia.</p>
     </div>
-    <div class="container early-cards">
-      <div class="early-card">
-        <div class="early-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    <div class="container inside-grid">
+      <div class="inside-item">
+        <div class="inside-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
         </div>
-        <b>7 dias de garantia incondicional</b>
-        <p>Testou e não gostou? Peça o reembolso dentro do prazo. Sem burocracia, sem precisar justificar.</p>
+        <div>
+          <b>Desenhos bíblicos com traços simples</b>
+          <p>Criados para crianças de 3 a 10 anos colorir sem frustração — nem complexo demais, nem básico demais.</p>
+        </div>
       </div>
-      <div class="early-card">
-        <div class="early-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <div class="inside-item">
+        <div class="inside-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg>
         </div>
-        <b>Seja das primeiras famílias</b>
-        <p>Cada compra ajuda a construir um material cada vez melhor. Você faz parte da história desse projeto.</p>
+        <div>
+          <b>Um versículo por página</b>
+          <p>Curto o suficiente para a criança acompanhar ou para você ler em voz alta enquanto ela colore.</p>
+        </div>
       </div>
-      <div class="early-card">
-        <div class="early-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      <div class="inside-item">
+        <div class="inside-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M7 8h10"/><path d="M5 21h14"/></svg>
         </div>
-        <b>Feito com propósito</b>
-        <p>Criado para aproximar crianças da Palavra de Deus de um jeito prático, bonito e acessível.</p>
+        <div>
+          <b>Histórias do Antigo e Novo Testamento</b>
+          <p>Adão e Eva, Arca de Noé, Moisés, Daniel na cova dos leões e outras histórias que a criança já conhece.</p>
+        </div>
+      </div>
+      <div class="inside-item">
+        <div class="inside-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
+        </div>
+        <div>
+          <b>Formato A4 pronto para impressão</b>
+          <p>Funciona em qualquer impressora doméstica. Colorido ou preto e branco — a criança colore com lápis ou giz de cera.</p>
+        </div>
       </div>
     </div>
     <div style="margin-top:40px;text-align:center">
-      <a href="https://pay.kiwify.com.br/MjZtzPT" class="cta" target="_blank" rel="noopener"><span>Testar com garantia por R$9,90</span></a>
+      <a href="https://pay.kiwify.com.br/MjZtzPT" class="cta" target="_blank" rel="noopener"><span>Quero baixar agora por R$9,90</span></a>
     </div>
   </section>
 
