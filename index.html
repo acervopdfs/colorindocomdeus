@@ -791,6 +791,7 @@ a{color:inherit}
   justify-content:center;
   width:110px;
   height:110px;
+  margin:0 auto;
 }
 .g-badge svg{width:100%;height:100%;filter:drop-shadow(0 8px 20px rgba(0,0,0,.22))}
 
@@ -1196,28 +1197,6 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
     </div>
   </section>
 
-  <!-- TRUST BAR -->
-  <section class="trust-bar" aria-label="Informações de confiança">
-    <div class="container trust-grid">
-      <div class="trust-item reveal">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        Compra segura
-      </div>
-      <div class="trust-item reveal">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
-        Acesso imediato
-      </div>
-      <div class="trust-item reveal">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
-        100% digital
-      </div>
-      <div class="trust-item reveal">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
-        Baixe e imprima
-      </div>
-    </div>
-  </section>
-
   <!-- FAQ -->
   <section class="section faq">
     <div class="narrow">
@@ -1283,18 +1262,18 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
       </div>
       <div class="final-trust" role="list" aria-label="Garantias de compra">
         <span class="ft-item" role="listitem">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="13 2 13 9 20 9"/><path d="M20 9V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h7"/></svg>
-          Acesso imediato ao PDF
-        </span>
-        <span class="ft-sep" aria-hidden="true">·</span>
-        <span class="ft-item" role="listitem">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          7 dias de garantia
-        </span>
-        <span class="ft-sep" aria-hidden="true">·</span>
-        <span class="ft-item" role="listitem">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
-          Imprima quantas vezes quiser
+          Funciona em qualquer impressora
+        </span>
+        <span class="ft-sep" aria-hidden="true">·</span>
+        <span class="ft-item" role="listitem">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          Leva menos de 2 minutos para baixar
+        </span>
+        <span class="ft-sep" aria-hidden="true">·</span>
+        <span class="ft-item" role="listitem">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Para crianças de 3 a 10 anos
         </span>
       </div>
     </div>
@@ -1373,17 +1352,26 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   });
 });
 
-// Scroll reveal com stagger por grupo
+// Scroll reveal com stagger por grupo — compatível iOS/Android
 (() => {
+  const revealEls = [...document.querySelectorAll('.reveal')];
+  if (!revealEls.length) return;
+
   const reducedMotion = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  const showAll = () => revealEls.forEach(el => {
+    el.style.transitionDelay = '';
+    el.classList.add('visible');
+  });
+
   if (reducedMotion || !('IntersectionObserver' in window)) {
-    document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+    showAll();
     return;
   }
 
-  // Aplicar delays escalonados dentro de cada grupo
+  // Stagger escalonado por grupo
   ['.how-grid','.pain-grid','.feature-grid','.bridge-box',
-   '.use-grid','.inside-grid','.trust-grid','.faq-list'].forEach(sel => {
+   '.use-grid','.inside-grid','.faq-list'].forEach(sel => {
     const g = document.querySelector(sel);
     if (!g) return;
     [...g.querySelectorAll('.reveal')].forEach((el, i) => {
@@ -1391,19 +1379,41 @@ document.querySelectorAll('.faq-q').forEach(btn => {
     });
   });
 
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      e.target.classList.add('visible');
-      // Remove delay após revelar para não atrasar hover depois
-      e.target.addEventListener('transitionend', () => {
-        e.target.style.transitionDelay = '';
-      }, { once: true });
-      obs.unobserve(e.target);
-    });
-  }, { rootMargin: '0px 0px -48px 0px', threshold: 0.08 });
+  const reveal = el => {
+    if (el.classList.contains('visible')) return;
+    el.classList.add('visible');
+    el.addEventListener('transitionend', () => {
+      el.style.transitionDelay = '';
+    }, { once: true });
+  };
 
-  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  // threshold:0 dispara assim que 1px fica visível — mais confiável no iOS
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { reveal(e.target); obs.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -20px 0px', threshold: 0 });
+
+  revealEls.forEach(el => obs.observe(el));
+
+  // Fallback iOS Safari: observer pode não disparar para elementos já visíveis
+  // Double rAF garante que o layout está completo antes de verificar
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    revealEls.forEach(el => {
+      if (el.classList.contains('visible')) return;
+      const r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight && r.bottom > 0) {
+        reveal(el);
+        obs.unobserve(el);
+      }
+    });
+  }));
+
+  // Safety net: 900ms após load, qualquer .reveal não revelado é desbloqueado
+  setTimeout(() => {
+    document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+      el.style.transitionDelay = '';
+      el.classList.add('visible');
+    });
+  }, 900);
 })();
 </script>
 </body>
