@@ -506,6 +506,7 @@ a{color:inherit}
 .preview-carousel-window{
   overflow:hidden;
   border-radius:30px;
+  touch-action:pan-y;
 }
 .preview-track{
   display:flex;
@@ -637,8 +638,8 @@ a{color:inherit}
 }
 .guarantee-card{
   display:grid;
-  grid-template-columns:1fr auto;
-  gap:30px;
+  grid-template-columns:1fr auto auto;
+  gap:28px 30px;
   align-items:center;
   border:1px solid rgba(255,255,255,.18);
   border-radius:30px;
@@ -774,10 +775,52 @@ a{color:inherit}
   opacity:.85;
 }
 
+/* SCROLL REVEAL */
+.reveal{
+  opacity:0;
+  transform:translateY(22px);
+  transition:opacity .55s cubic-bezier(.22,.61,.36,1),transform .55s cubic-bezier(.22,.61,.36,1);
+}
+.reveal.visible{opacity:1;transform:none}
+
+/* GUARANTEE BADGE */
+.g-badge{
+  flex-shrink:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:110px;
+  height:110px;
+}
+.g-badge svg{width:100%;height:100%;filter:drop-shadow(0 8px 20px rgba(0,0,0,.22))}
+
+/* FINAL TRUST RECAP */
+.final-trust{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center;
+  gap:8px 0;
+  margin-top:22px;
+}
+.ft-item{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  font-size:13px;
+  font-weight:800;
+  color:var(--muted);
+  white-space:nowrap;
+  opacity:.85;
+}
+.ft-item svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.ft-sep{margin:0 10px;color:var(--muted);opacity:.35;font-weight:800;font-size:13px}
+
 /* REDUCED MOTION */
 @media (prefers-reduced-motion:reduce){
   .cta:before,.hero-product,.hero-sparkle{animation:none}
   .pain-card,.compare,.feature,.preview-item,.use-card,.early-card,.trust-item,.cta{transition:none}
+  .reveal{opacity:1;transform:none;transition:none}
 }
 
 /* RESPONSIVE 920px */
@@ -911,17 +954,17 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
       <p class="section-copy">Três passos. Sem aplicativo, sem cadastro complicado, sem esperar entrega.</p>
     </div>
     <div class="container how-grid">
-      <div class="how-step">
+      <div class="how-step reveal">
         <div class="how-num">1</div>
         <b>Clique e pague</b>
         <p>Checkout seguro por PIX ou cartão. Leva menos de dois minutos para concluir.</p>
       </div>
-      <div class="how-step">
+      <div class="how-step reveal">
         <div class="how-num">2</div>
         <b>Receba o PDF</b>
         <p>Assim que o pagamento é confirmado, você recebe o link por e-mail. Acesso imediato, direto no celular ou computador.</p>
       </div>
-      <div class="how-step">
+      <div class="how-step reveal">
         <div class="how-num">3</div>
         <b>Imprima e use hoje</b>
         <p>Qualquer impressora doméstica. Preto e branco ou colorido. Coloque na mesa e deixe a criança colorir.</p>
@@ -940,22 +983,22 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
         <h2 class="section-title" style="margin-top:18px">Colorindo com Deus</h2>
         <p class="section-copy">Um PDF bíblico infantil com desenhos para colorir e versículos simples, feito para crianças de 3 a 10 anos. Você baixa, imprime e coloca na mesa — sem precisar preparar nada, sem precisar explicar nada antes.</p>
         <div class="feature-grid">
-          <article class="feature">
+          <article class="feature reveal">
             <span class="gold-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg></span>
             <b>Pronto para imprimir</b>
             <p>Receba o material digitalmente e use hoje, sem esperar entrega.</p>
           </article>
-          <article class="feature">
+          <article class="feature reveal">
             <span class="gold-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/><path d="M12 7v7"/><path d="M9.5 9.5h5"/></svg></span>
             <b>Versículos simples</b>
             <p>Cada página aproxima a criança da Palavra de Deus de um jeito leve.</p>
           </article>
-          <article class="feature">
+          <article class="feature reveal">
             <span class="gold-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 10.5L12 3l9 7.5"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg></span>
             <b>Para casa e igreja</b>
             <p>Funciona na rotina da família, escola dominical, catequese e ministério infantil.</p>
           </article>
-          <article class="feature">
+          <article class="feature reveal">
             <span class="gold-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg></span>
             <b>Imprima quantas vezes quiser</b>
             <p>Use novamente com filhos, alunos, turmas e momentos diferentes.</p>
@@ -975,17 +1018,17 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
       <p class="section-copy">Sem briga, sem culpa pesada e sem precisar inventar uma atividade do zero. Só imprimir, colocar na mesa e viver um momento mais calmo com a criança.</p>
     </div>
     <div class="container pain-grid">
-      <article class="pain-card">
+      <article class="pain-card reveal">
         <span class="soft-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></span>
         <b>Quando a tela vira a resposta para tudo</b>
         <p>A criança pede celular, fica irritada quando precisa parar e a rotina vai ficando mais difícil.</p>
       </article>
-      <article class="pain-card">
+      <article class="pain-card reveal">
         <span class="soft-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg></span>
         <b>Quando falta uma atividade pronta</b>
         <p>Você até quer fazer algo diferente, mas nem sempre sobra tempo para preparar material.</p>
       </article>
-      <article class="pain-card">
+      <article class="pain-card reveal">
         <span class="soft-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M7 8h10"/><path d="M5 21h14"/></svg></span>
         <b>Quando você quer trazer a fé pra perto</b>
         <p>Você não precisa criar uma aula inteira. Uma folha na mesa já é suficiente.</p>
@@ -996,7 +1039,7 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
   <!-- ANTES / DEPOIS -->
   <section class="section bridge">
     <div class="container bridge-box">
-      <div class="compare before">
+      <div class="compare before reveal">
         <span class="soft-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.5 10h.01"/><path d="M15.5 10h.01"/><path d="M8.5 16c1.8-1.5 5.2-1.5 7 0"/></svg></span>
         <h3>Antes</h3>
         <ul>
@@ -1006,7 +1049,7 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
           <li>Menos momentos de presença</li>
         </ul>
       </div>
-      <div class="compare after">
+      <div class="compare after reveal">
         <span class="soft-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.5 10h.01"/><path d="M15.5 10h.01"/><path d="M8 15c1.7 2 6.3 2 8 0"/></svg></span>
         <h3>Depois</h3>
         <ul>
@@ -1064,17 +1107,17 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
       <p class="section-copy">A proposta é simples: uma atividade cristã pronta para entrar na rotina sem complicar.</p>
     </div>
     <div class="container use-grid">
-      <article class="use-card">
+      <article class="use-card reveal">
         <div class="soft-icon use-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 10.5L12 3l9 7.5"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg></div>
         <h3>Em casa</h3>
         <p>Para tardes mais calmas, momentos em família e pausas saudáveis longe das telas.</p>
       </article>
-      <article class="use-card">
+      <article class="use-card reveal">
         <div class="soft-icon use-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M7 8h10"/><path d="M5 21h14"/></svg></div>
         <h3>Na escola dominical</h3>
         <p>Material pronto para complementar aulas, histórias bíblicas e atividades com a turma.</p>
       </article>
-      <article class="use-card">
+      <article class="use-card reveal">
         <div class="soft-icon use-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.93 19.07l1.41-1.41"/><path d="M17.66 6.34l1.41-1.41"/></svg></div>
         <h3>Na rotina corrida</h3>
         <p>Quando você precisa de algo simples, bonito e com propósito para usar no mesmo dia.</p>
@@ -1090,7 +1133,7 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
       <p class="section-copy">Material completo, pronto para imprimir e usar no mesmo dia.</p>
     </div>
     <div class="container inside-grid">
-      <div class="inside-item">
+      <div class="inside-item reveal">
         <div class="inside-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
         </div>
@@ -1099,7 +1142,7 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
           <p>Criados para crianças de 3 a 10 anos colorir sem frustração — nem complexo demais, nem básico demais.</p>
         </div>
       </div>
-      <div class="inside-item">
+      <div class="inside-item reveal">
         <div class="inside-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg>
         </div>
@@ -1108,7 +1151,7 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
           <p>Curto o suficiente para a criança acompanhar ou para você ler em voz alta enquanto ela colore.</p>
         </div>
       </div>
-      <div class="inside-item">
+      <div class="inside-item reveal">
         <div class="inside-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M7 8h10"/><path d="M5 21h14"/></svg>
         </div>
@@ -1117,7 +1160,7 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
           <p>Adão e Eva, Arca de Noé, Moisés, Daniel na cova dos leões e outras histórias que a criança já conhece.</p>
         </div>
       </div>
-      <div class="inside-item">
+      <div class="inside-item reveal">
         <div class="inside-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
         </div>
@@ -1139,6 +1182,16 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
         <h2 class="section-title">Teste sem risco por 7 dias</h2>
         <p>Se o Colorindo com Deus não fizer sentido para sua rotina, você pode pedir reembolso dentro do prazo de garantia. Simples assim.</p>
       </div>
+      <div class="g-badge" aria-label="Garantia incondicional de 7 dias">
+        <svg viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="55" cy="55" r="52" stroke="rgba(255,255,255,.22)" stroke-width="1.5" stroke-dasharray="4.5 3"/>
+          <circle cx="55" cy="55" r="44" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.18)" stroke-width="1"/>
+          <path d="M55 27l13 5v12c0 8-5.5 15-13 18-7.5-3-13-10-13-18V32z" stroke="#F6C445" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M49.5 44.5l4 4 9-9" stroke="#F6C445" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="55" y="76" text-anchor="middle" font-family="Fredoka, Arial, sans-serif" font-size="18" font-weight="700" fill="white">7 DIAS</text>
+          <text x="55" y="90" text-anchor="middle" font-family="Nunito, Arial, sans-serif" font-size="8" font-weight="900" fill="rgba(255,255,255,.6)" letter-spacing="2">GARANTIA</text>
+        </svg>
+      </div>
       <a href="https://pay.kiwify.com.br/MjZtzPT" class="cta" target="_blank" rel="noopener"><span>Quero testar hoje</span></a>
     </div>
   </section>
@@ -1146,19 +1199,19 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
   <!-- TRUST BAR -->
   <section class="trust-bar" aria-label="Informações de confiança">
     <div class="container trust-grid">
-      <div class="trust-item">
+      <div class="trust-item reveal">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         Compra segura
       </div>
-      <div class="trust-item">
+      <div class="trust-item reveal">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
         Acesso imediato
       </div>
-      <div class="trust-item">
+      <div class="trust-item reveal">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
         100% digital
       </div>
-      <div class="trust-item">
+      <div class="trust-item reveal">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
         Baixe e imprima
       </div>
@@ -1172,7 +1225,7 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
       <h2 class="section-title" style="margin-top:18px">Perguntas frequentes</h2>
     </div>
     <div class="faq-list">
-      <div class="faq-item">
+      <div class="faq-item reveal">
         <button class="faq-q" type="button" aria-expanded="false">
           Precisa de impressora especial?
           <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
@@ -1181,7 +1234,7 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
           <p>Não. Qualquer impressora doméstica funciona — colorida ou preto e branco. A maioria das famílias imprime em preto e branco e a criança colore com os próprios lápis ou giz de cera.</p>
         </div>
       </div>
-      <div class="faq-item">
+      <div class="faq-item reveal">
         <button class="faq-q" type="button" aria-expanded="false">
           Como vou receber o material?
           <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
@@ -1190,7 +1243,7 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
           <p>Assim que o pagamento for confirmado, você recebe um e-mail com o link de acesso ao PDF. Funciona em qualquer celular, tablet ou computador. Você baixa, salva e imprime quando quiser.</p>
         </div>
       </div>
-      <div class="faq-item">
+      <div class="faq-item reveal">
         <button class="faq-q" type="button" aria-expanded="false">
           Para qual idade é indicado?
           <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
@@ -1199,7 +1252,7 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
           <p>O material foi pensado para crianças de 3 a 10 anos. Os traços são simples para os menores conseguirem colorir, e os versículos bíblicos são curtos o suficiente para crianças em fase de alfabetização acompanharem.</p>
         </div>
       </div>
-      <div class="faq-item">
+      <div class="faq-item reveal">
         <button class="faq-q" type="button" aria-expanded="false">
           Posso usar na escola dominical ou catequese?
           <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
@@ -1208,7 +1261,7 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
           <p>Sim. Como é um PDF, você pode imprimir quantas cópias precisar — para uma turma de 5, 10 ou 20 crianças. Uma compra, uso ilimitado.</p>
         </div>
       </div>
-      <div class="faq-item">
+      <div class="faq-item reveal">
         <button class="faq-q" type="button" aria-expanded="false">
           E se eu não gostar?
           <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
@@ -1228,6 +1281,22 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
       <div style="margin-top:30px">
         <a href="https://pay.kiwify.com.br/MjZtzPT" class="cta" target="_blank" rel="noopener"><span>Quero imprimir e usar hoje</span></a>
       </div>
+      <div class="final-trust" role="list" aria-label="Garantias de compra">
+        <span class="ft-item" role="listitem">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="13 2 13 9 20 9"/><path d="M20 9V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h7"/></svg>
+          Acesso imediato ao PDF
+        </span>
+        <span class="ft-sep" aria-hidden="true">·</span>
+        <span class="ft-item" role="listitem">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          7 dias de garantia
+        </span>
+        <span class="ft-sep" aria-hidden="true">·</span>
+        <span class="ft-item" role="listitem">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
+          Imprima quantas vezes quiser
+        </span>
+      </div>
     </div>
   </section>
 </main>
@@ -1242,34 +1311,56 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
 </footer>
 
 <script>
-// Carrossel de preview
+// Carrossel de preview + swipe (iOS/Android)
 (() => {
   const track = document.querySelector('[data-preview-track]');
-  const dots = [...document.querySelectorAll('[data-preview-dot]')];
-  const prev = document.querySelector('[data-preview-prev]');
-  const next = document.querySelector('[data-preview-next]');
+  const dots  = [...document.querySelectorAll('[data-preview-dot]')];
+  const prev  = document.querySelector('[data-preview-prev]');
+  const next  = document.querySelector('[data-preview-next]');
   if (!track || !prev || !next || dots.length === 0) return;
-  let current = 0;
-  let moving = false;
+
+  let current = 0, moving = false;
   const total = dots.length;
-  const goTo = (index) => {
+
+  const goTo = idx => {
     if (moving) return;
     moving = true;
-    current = (index + total) % total;
+    current = (idx + total) % total;
     track.style.transform = `translateX(-${current * 100}%)`;
-    dots.forEach((dot, i) => dot.classList.toggle('active', i === current));
-    window.setTimeout(() => { moving = false; }, 380);
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    setTimeout(() => { moving = false; }, 400);
   };
+
   track.addEventListener('transitionend', () => { moving = false; });
   prev.addEventListener('click', () => goTo(current - 1));
   next.addEventListener('click', () => goTo(current + 1));
-  dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+  dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
+
+  // Touch swipe — passive listeners para não bloquear scroll iOS
+  let tx = 0, ty = 0, swipeActive = false;
+  track.addEventListener('touchstart', e => {
+    tx = e.touches[0].clientX;
+    ty = e.touches[0].clientY;
+    swipeActive = false;
+  }, { passive: true });
+  track.addEventListener('touchmove', e => {
+    if (swipeActive) return;
+    const dx = Math.abs(e.touches[0].clientX - tx);
+    const dy = Math.abs(e.touches[0].clientY - ty);
+    if (dx > dy && dx > 8) swipeActive = true;
+  }, { passive: true });
+  track.addEventListener('touchend', e => {
+    if (!swipeActive) return;
+    const dx = e.changedTouches[0].clientX - tx;
+    if (Math.abs(dx) > 38) goTo(dx < 0 ? current + 1 : current - 1);
+    swipeActive = false;
+  }, { passive: true });
 })();
 
 // FAQ accordion
 document.querySelectorAll('.faq-q').forEach(btn => {
   btn.addEventListener('click', () => {
-    const item = btn.closest('.faq-item');
+    const item   = btn.closest('.faq-item');
     const isOpen = item.classList.contains('open');
     document.querySelectorAll('.faq-item.open').forEach(el => {
       el.classList.remove('open');
@@ -1281,6 +1372,39 @@ document.querySelectorAll('.faq-q').forEach(btn => {
     }
   });
 });
+
+// Scroll reveal com stagger por grupo
+(() => {
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if (reducedMotion || !('IntersectionObserver' in window)) {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+    return;
+  }
+
+  // Aplicar delays escalonados dentro de cada grupo
+  ['.how-grid','.pain-grid','.feature-grid','.bridge-box',
+   '.use-grid','.inside-grid','.trust-grid','.faq-list'].forEach(sel => {
+    const g = document.querySelector(sel);
+    if (!g) return;
+    [...g.querySelectorAll('.reveal')].forEach((el, i) => {
+      el.style.transitionDelay = (i * 85) + 'ms';
+    });
+  });
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('visible');
+      // Remove delay após revelar para não atrasar hover depois
+      e.target.addEventListener('transitionend', () => {
+        e.target.style.transitionDelay = '';
+      }, { once: true });
+      obs.unobserve(e.target);
+    });
+  }, { rootMargin: '0px 0px -48px 0px', threshold: 0.08 });
+
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+})();
 </script>
 </body>
 </html>
