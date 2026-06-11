@@ -1370,29 +1370,27 @@ document.querySelectorAll('.faq-q').forEach(btn => {
     return;
   }
 
-  // Verifica quais elementos estão na viewport e atualiza classe
+  let ticking = false;
+
   const check = () => {
     const vh = window.innerHeight;
     els.forEach(el => {
       const r = el.getBoundingClientRect();
-      const inView = r.top < vh - 30 && r.bottom > 30;
-      el.classList.toggle('visible', inView);
+      el.classList.toggle('visible', r.top < vh - 20 && r.bottom > 20);
     });
+    ticking = false;
   };
 
-  // IntersectionObserver como mecanismo principal
-  if ('IntersectionObserver' in window) {
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => e.target.classList.toggle('visible', e.isIntersecting));
-    }, { rootMargin: '-30px 0px -30px 0px', threshold: 0 });
-    els.forEach(el => obs.observe(el));
-  }
+  const onScroll = () => {
+    if (!ticking) {
+      requestAnimationFrame(check);
+      ticking = true;
+    }
+  };
 
-  // Scroll listener como fallback garantido para mobile
-  window.addEventListener('scroll', check, { passive: true });
-  window.addEventListener('resize', check, { passive: true });
-
-  // Verifica no load
+  window.addEventListener('scroll',    onScroll, { passive: true });
+  window.addEventListener('touchmove', onScroll, { passive: true });
+  window.addEventListener('resize',    check,    { passive: true });
   requestAnimationFrame(check);
 })();
 </script>
