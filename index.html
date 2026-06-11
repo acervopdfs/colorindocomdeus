@@ -295,7 +295,8 @@ a{color:inherit}
   border-radius:34px;
   background:linear-gradient(180deg,rgba(255,255,255,.78),rgba(255,249,240,.88));
   box-shadow:0 28px 80px rgba(23,52,97,.25);
-  will-change:transform;
+  -webkit-backface-visibility:hidden;
+  backface-visibility:hidden;
   -webkit-animation:gentleFloat 5.4s ease-in-out infinite;
   animation:gentleFloat 5.4s ease-in-out infinite;
 }
@@ -321,7 +322,8 @@ a{color:inherit}
   height:34px;
   color:var(--gold);
   filter:drop-shadow(0 8px 12px rgba(216,155,22,.18));
-  will-change:transform,opacity;
+  -webkit-backface-visibility:hidden;
+  backface-visibility:hidden;
   -webkit-animation:sparklePulse 2.8s ease-in-out infinite;
   animation:sparklePulse 2.8s ease-in-out infinite;
 }
@@ -1401,18 +1403,21 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   };
 
   // scroll: Android + iOS momentum
-  // touchmove: durante o arrasto
-  // touchend: iOS dispara check ao soltar o dedo (início do momentum)
-  window.addEventListener('scroll',    check, { passive: true });
-  window.addEventListener('touchmove', check, { passive: true });
-  window.addEventListener('touchend',  check, { passive: true });
-  window.addEventListener('resize',    check, { passive: true });
+  // document scroll: iOS com overflow-x:hidden no body dispara no document, não no window
+  // touchmove + touchend: durante e ao soltar o toque
+  const opts = { passive: true };
+  window.addEventListener('scroll',    check, opts);
+  document.addEventListener('scroll',  check, opts);
+  window.addEventListener('touchmove', check, opts);
+  window.addEventListener('touchend',  check, opts);
+  window.addEventListener('resize',    check, opts);
 
-  // iOS: layout pode não estar pronto no primeiro rAF — disparar várias checagens iniciais
+  // iOS: layout não fica pronto no primeiro rAF — múltiplos checks iniciais
   requestAnimationFrame(check);
   requestAnimationFrame(() => requestAnimationFrame(check));
   setTimeout(check, 100);
-  setTimeout(check, 400);
+  setTimeout(check, 500);
+  setTimeout(check, 1200);
   window.addEventListener('load', check, { once: true });
 })();
 </script>
