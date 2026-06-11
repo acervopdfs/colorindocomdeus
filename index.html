@@ -297,17 +297,9 @@ a{color:inherit}
   box-shadow:0 28px 80px rgba(23,52,97,.25);
   -webkit-backface-visibility:hidden;
   backface-visibility:hidden;
-  -webkit-animation:gentleFloat 5.4s ease-in-out infinite;
-  animation:gentleFloat 5.4s ease-in-out infinite;
 }
 .hero-product-mobile{display:none}
 .hero-product:before{
-  content:"";
-  position:absolute;
-  inset:18px -18px -18px 42px;
-  z-index:-1;
-  border-radius:34px;
-  background:rgba(46,79,138,.16);
   display:none;
 }
 .hero-product img{
@@ -331,14 +323,6 @@ a{color:inherit}
 .hero-sparkle svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .hero-sparkle.one{right:-8px;top:24px}
 .hero-sparkle.two{left:-10px;bottom:46px;-webkit-animation-delay:1.2s;animation-delay:1.2s}
-@-webkit-keyframes gentleFloat{
-  0%,100%{-webkit-transform:translateY(0);transform:translateY(0)}
-  50%{-webkit-transform:translateY(-6px);transform:translateY(-6px)}
-}
-@keyframes gentleFloat{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-6px)}
-}
 @-webkit-keyframes sparklePulse{
   0%,100%{opacity:.55;-webkit-transform:scale(.92) rotate(0deg);transform:scale(.92) rotate(0deg)}
   50%{opacity:1;-webkit-transform:scale(1.08) rotate(8deg);transform:scale(1.08) rotate(8deg)}
@@ -802,11 +786,16 @@ a{color:inherit}
 
 /* SCROLL REVEAL */
 .reveal{
-  opacity:0;
-  -webkit-transform:translateY(28px);
-  transform:translateY(28px);
+  opacity:1;
+  -webkit-transform:translateY(0);
+  transform:translateY(0);
   -webkit-transition:opacity .6s ease-out,-webkit-transform .6s ease-out;
   transition:opacity .6s ease-out,transform .6s ease-out;
+}
+.js-animations .reveal{
+  opacity:0;
+  -webkit-transform:translateY(24px);
+  transform:translateY(24px);
 }
 .reveal.visible{
   opacity:1;
@@ -1322,57 +1311,61 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
 
 <script>
 // Carrossel de preview + swipe (iOS/Android)
-(() => {
-  const track = document.querySelector('[data-preview-track]');
-  const dots  = [...document.querySelectorAll('[data-preview-dot]')];
-  const prev  = document.querySelector('[data-preview-prev]');
-  const next  = document.querySelector('[data-preview-next]');
+(function(){
+  var track = document.querySelector('[data-preview-track]');
+  var dots  = Array.prototype.slice.call(document.querySelectorAll('[data-preview-dot]'));
+  var prev  = document.querySelector('[data-preview-prev]');
+  var next  = document.querySelector('[data-preview-next]');
   if (!track || !prev || !next || dots.length === 0) return;
 
-  let current = 0, moving = false;
-  const total = dots.length;
+  var current = 0;
+  var moving = false;
+  var total = dots.length;
 
-  const goTo = idx => {
+  var goTo = function(idx){
     if (moving) return;
     moving = true;
     current = (idx + total) % total;
-    track.style.transform = `translateX(-${current * 100}%)`;
-    dots.forEach((d, i) => d.classList.toggle('active', i === current));
-    setTimeout(() => { moving = false; }, 400);
+    track.style.webkitTransform = 'translateX(-' + (current * 100) + '%)';
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    dots.forEach(function(d, i){ d.classList.toggle('active', i === current); });
+    setTimeout(function(){ moving = false; }, 400);
   };
 
-  track.addEventListener('transitionend', () => { moving = false; });
-  prev.addEventListener('click', () => goTo(current - 1));
-  next.addEventListener('click', () => goTo(current + 1));
-  dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
+  track.addEventListener('transitionend', function(){ moving = false; });
+  prev.addEventListener('click', function(){ goTo(current - 1); });
+  next.addEventListener('click', function(){ goTo(current + 1); });
+  dots.forEach(function(d, i){ d.addEventListener('click', function(){ goTo(i); }); });
 
   // Touch swipe — passive listeners para não bloquear scroll iOS
-  let tx = 0, ty = 0, swipeActive = false;
-  track.addEventListener('touchstart', e => {
+  var tx = 0;
+  var ty = 0;
+  var swipeActive = false;
+  track.addEventListener('touchstart', function(e){
     tx = e.touches[0].clientX;
     ty = e.touches[0].clientY;
     swipeActive = false;
   }, { passive: true });
-  track.addEventListener('touchmove', e => {
+  track.addEventListener('touchmove', function(e){
     if (swipeActive) return;
-    const dx = Math.abs(e.touches[0].clientX - tx);
-    const dy = Math.abs(e.touches[0].clientY - ty);
+    var dx = Math.abs(e.touches[0].clientX - tx);
+    var dy = Math.abs(e.touches[0].clientY - ty);
     if (dx > dy && dx > 8) swipeActive = true;
   }, { passive: true });
-  track.addEventListener('touchend', e => {
+  track.addEventListener('touchend', function(e){
     if (!swipeActive) return;
-    const dx = e.changedTouches[0].clientX - tx;
+    var dx = e.changedTouches[0].clientX - tx;
     if (Math.abs(dx) > 38) goTo(dx < 0 ? current + 1 : current - 1);
     swipeActive = false;
   }, { passive: true });
 })();
 
 // FAQ accordion
-document.querySelectorAll('.faq-q').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const item   = btn.closest('.faq-item');
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item.open').forEach(el => {
+Array.prototype.slice.call(document.querySelectorAll('.faq-q')).forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var item = btn.closest('.faq-item');
+    var isOpen = item.classList.contains('open');
+    Array.prototype.slice.call(document.querySelectorAll('.faq-item.open')).forEach(function(el){
       el.classList.remove('open');
       el.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
     });
@@ -1383,35 +1376,54 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   });
 });
 
-// Scroll reveal bidirecional — surge ao entrar, some ao sair
-(() => {
-  const els = [...document.querySelectorAll('.reveal')];
+// Animacoes da pagina: hero float + scroll reveal.
+(function(){
+  document.documentElement.classList.add('js-animations');
+
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  var productImages = Array.prototype.slice.call(document.querySelectorAll('.hero-product img'));
+  if (!prefersReduced && productImages.length) {
+    var start = Date.now();
+    var floatHero = function(){
+      var y = Math.sin((Date.now() - start) / 850) * 6;
+      productImages.forEach(function(img){
+        img.style.webkitTransform = 'translate3d(0,' + y + 'px,0)';
+        img.style.transform = 'translate3d(0,' + y + 'px,0)';
+      });
+      window.requestAnimationFrame(floatHero);
+    };
+    window.requestAnimationFrame(floatHero);
+  }
+
+  var els = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
   if (!els.length) return;
 
-  if (window.matchMedia('(prefers-reduced-motion:reduce)').matches) {
-    els.forEach(el => el.classList.add('visible'));
+  if (prefersReduced) {
+    els.forEach(function(el){ el.classList.add('visible'); });
     return;
   }
 
-  const check = () => {
-    const vh = window.innerHeight;
-    els.forEach(el => {
-      const r = el.getBoundingClientRect();
-      el.classList.toggle('visible', r.top < vh - 20 && r.bottom > 20);
+  var check = function(){
+    var vh = window.innerHeight;
+    els.forEach(function(el){
+      var r = el.getBoundingClientRect();
+      var inView = r.top < vh - 18 && r.bottom > 18;
+      el.classList.toggle('visible', inView);
     });
   };
 
-  let ticking = false;
-  const onScroll = () => {
+  var ticking = false;
+  var onScroll = function(){
     if (ticking) return;
     ticking = true;
-    requestAnimationFrame(() => {
+    requestAnimationFrame(function(){
       check();
       ticking = false;
     });
   };
 
-  const opts = { passive: true };
+  var opts = { passive: true };
   window.addEventListener('scroll', onScroll, opts);
   document.addEventListener('scroll', onScroll, opts);
   window.addEventListener('touchmove', onScroll, opts);
@@ -1420,7 +1432,7 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   window.addEventListener('orientationchange', check, opts);
 
   requestAnimationFrame(check);
-  requestAnimationFrame(() => requestAnimationFrame(check));
+  requestAnimationFrame(function(){ requestAnimationFrame(check); });
   setTimeout(check, 100);
   setTimeout(check, 500);
   setTimeout(check, 1200);
