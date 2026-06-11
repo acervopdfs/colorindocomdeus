@@ -781,13 +781,14 @@ a{color:inherit}
 }
 
 /* SCROLL REVEAL */
-@keyframes revealUp{
-  from{opacity:0;transform:translateY(18px)}
-  to  {opacity:1;transform:translateY(0)}
+.reveal{
+  opacity:0;
+  transform:translateY(18px);
+  transition:opacity .45s ease,transform .45s ease;
 }
-.reveal{opacity:0;transform:translateY(18px)}
 .reveal.visible{
-  animation:revealUp .5s ease var(--reveal-delay,0ms) both;
+  opacity:1;
+  transform:translateY(0);
 }
 
 /* GUARANTEE BADGE */
@@ -1359,35 +1360,40 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   });
 });
 
-// Scroll reveal — elementos surgem conforme entram na tela
+// Scroll reveal bidirecional — surge ao entrar, some ao sair
 (() => {
   const els = [...document.querySelectorAll('.reveal')];
   if (!els.length) return;
 
-  if (window.matchMedia('(prefers-reduced-motion:reduce)').matches || !('IntersectionObserver' in window)) {
+  if (window.matchMedia('(prefers-reduced-motion:reduce)').matches) {
     els.forEach(el => el.classList.add('visible'));
     return;
   }
 
-  // Stagger por grupo
-  ['.how-grid','.pain-grid','.feature-grid','.bridge-box',
-   '.use-grid','.inside-grid','.faq-list'].forEach(sel => {
-    const g = document.querySelector(sel);
-    if (!g) return;
-    [...g.querySelectorAll('.reveal')].forEach((el, i) => {
-      el.style.setProperty('--reveal-delay', (i * 80) + 'ms');
+  // Verifica quais elementos estão na viewport e atualiza classe
+  const check = () => {
+    const vh = window.innerHeight;
+    els.forEach(el => {
+      const r = el.getBoundingClientRect();
+      const inView = r.top < vh - 30 && r.bottom > 30;
+      el.classList.toggle('visible', inView);
     });
-  });
+  };
 
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      e.target.classList.add('visible');
-      obs.unobserve(e.target);
-    });
-  }, { rootMargin: '0px 0px -40px 0px', threshold: 0 });
+  // IntersectionObserver como mecanismo principal
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => e.target.classList.toggle('visible', e.isIntersecting));
+    }, { rootMargin: '-30px 0px -30px 0px', threshold: 0 });
+    els.forEach(el => obs.observe(el));
+  }
 
-  els.forEach(el => obs.observe(el));
+  // Scroll listener como fallback garantido para mobile
+  window.addEventListener('scroll', check, { passive: true });
+  window.addEventListener('resize', check, { passive: true });
+
+  // Verifica no load
+  requestAnimationFrame(check);
 })();
 </script>
 </body>
