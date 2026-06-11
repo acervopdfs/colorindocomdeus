@@ -1359,24 +1359,17 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   });
 });
 
-// Scroll reveal com stagger por grupo — compatível iOS/Android
+// Scroll reveal — elementos surgem conforme entram na tela
 (() => {
-  const revealEls = [...document.querySelectorAll('.reveal')];
-  if (!revealEls.length) return;
+  const els = [...document.querySelectorAll('.reveal')];
+  if (!els.length) return;
 
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-
-  const showAll = () => revealEls.forEach(el => {
-    el.style.removeProperty('--reveal-delay');
-    el.classList.add('visible');
-  });
-
-  if (reducedMotion || !('IntersectionObserver' in window)) {
-    showAll();
+  if (window.matchMedia('(prefers-reduced-motion:reduce)').matches || !('IntersectionObserver' in window)) {
+    els.forEach(el => el.classList.add('visible'));
     return;
   }
 
-  // Stagger via CSS custom property — mais confiável que animationDelay inline no mobile
+  // Stagger por grupo
   ['.how-grid','.pain-grid','.feature-grid','.bridge-box',
    '.use-grid','.inside-grid','.faq-list'].forEach(sel => {
     const g = document.querySelector(sel);
@@ -1386,36 +1379,15 @@ document.querySelectorAll('.faq-q').forEach(btn => {
     });
   });
 
-  const reveal = el => {
-    if (el.classList.contains('visible')) return;
-    el.classList.add('visible');
-  };
-
   const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { reveal(e.target); obs.unobserve(e.target); } });
-  }, { rootMargin: '0px 0px -20px 0px', threshold: 0 });
-
-  revealEls.forEach(el => obs.observe(el));
-
-  // Fallback: double rAF para elementos já visíveis no load
-  requestAnimationFrame(() => requestAnimationFrame(() => {
-    revealEls.forEach(el => {
-      if (el.classList.contains('visible')) return;
-      const r = el.getBoundingClientRect();
-      if (r.top < window.innerHeight && r.bottom > 0) {
-        reveal(el);
-        obs.unobserve(el);
-      }
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('visible');
+      obs.unobserve(e.target);
     });
-  }));
+  }, { rootMargin: '0px 0px -40px 0px', threshold: 0 });
 
-  // Safety net: 900ms
-  setTimeout(() => {
-    document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
-      el.style.animationDelay = '';
-      el.classList.add('visible');
-    });
-  }, 900);
+  els.forEach(el => obs.observe(el));
 })();
 </script>
 </body>
