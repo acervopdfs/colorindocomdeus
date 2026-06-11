@@ -308,6 +308,7 @@ a{color:inherit}
   z-index:-1;
   border-radius:34px;
   background:rgba(46,79,138,.16);
+  display:none;
 }
 .hero-product img{
   width:100%;
@@ -890,7 +891,7 @@ a{color:inherit}
     padding:12px;
     border-radius:24px;
   }
-  .hero-product-mobile:before{inset:14px -12px -12px 30px;border-radius:24px}
+  .hero-product-mobile:before{display:none}
   .hero-product-mobile img{max-height:330px;border-radius:16px}
   .hero-actions{display:flex;flex-direction:column;order:3}
   .hero-actions .price-card{order:1}
@@ -1381,6 +1382,31 @@ document.querySelectorAll('.faq-q').forEach(btn => {
     }
   });
 });
+
+// Fallback de flutuação do hero para iOS/Safari.
+(() => {
+  if (window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+
+  const products = [...document.querySelectorAll('.hero-product')];
+  if (!products.length) return;
+
+  products.forEach(el => {
+    el.style.webkitAnimation = 'none';
+    el.style.animation = 'none';
+  });
+
+  const start = performance.now();
+  const float = now => {
+    const y = Math.sin((now - start) / 860) * 6;
+    products.forEach(el => {
+      el.style.webkitTransform = `translate3d(0, ${y}px, 0)`;
+      el.style.transform = `translate3d(0, ${y}px, 0)`;
+    });
+    requestAnimationFrame(float);
+  };
+
+  requestAnimationFrame(float);
+})();
 
 // Scroll reveal bidirecional — surge ao entrar, some ao sair
 (() => {
