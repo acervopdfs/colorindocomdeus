@@ -1383,31 +1383,6 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   });
 });
 
-// Fallback de flutuação do hero para iOS/Safari.
-(() => {
-  if (window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
-
-  const products = [...document.querySelectorAll('.hero-product')];
-  if (!products.length) return;
-
-  products.forEach(el => {
-    el.style.webkitAnimation = 'none';
-    el.style.animation = 'none';
-  });
-
-  const start = performance.now();
-  const float = now => {
-    const y = Math.sin((now - start) / 860) * 6;
-    products.forEach(el => {
-      el.style.webkitTransform = `translate3d(0, ${y}px, 0)`;
-      el.style.transform = `translate3d(0, ${y}px, 0)`;
-    });
-    requestAnimationFrame(float);
-  };
-
-  requestAnimationFrame(float);
-})();
-
 // Scroll reveal bidirecional — surge ao entrar, some ao sair
 (() => {
   const els = [...document.querySelectorAll('.reveal')];
@@ -1418,57 +1393,38 @@ document.querySelectorAll('.faq-q').forEach(btn => {
     return;
   }
 
-  let ticking = false;
-
   const check = () => {
-    ticking = false;
     const vh = window.innerHeight;
     els.forEach(el => {
       const r = el.getBoundingClientRect();
-      const inView = r.top < vh - 32 && r.bottom > 32;
-      if (inView) el.classList.add('visible');
-      else el.classList.remove('visible');
+      el.classList.toggle('visible', r.top < vh - 20 && r.bottom > 20);
     });
   };
 
-  const schedule = () => {
+  let ticking = false;
+  const onScroll = () => {
     if (ticking) return;
     ticking = true;
-    requestAnimationFrame(check);
+    requestAnimationFrame(() => {
+      check();
+      ticking = false;
+    });
   };
 
-  if ('IntersectionObserver' in window) {
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        entry.target.classList.toggle('visible', entry.isIntersecting);
-      });
-    }, {
-      root: null,
-      threshold: 0,
-      rootMargin: '-32px 0px -32px 0px'
-    });
-
-    els.forEach(el => io.observe(el));
-  }
-
-  // Eventos extras: Safari/iOS pode atrasar IntersectionObserver durante momentum scroll.
   const opts = { passive: true };
-  window.addEventListener('scroll', schedule, opts);
-  document.addEventListener('scroll', schedule, opts);
-  document.body.addEventListener('scroll', schedule, opts);
-  window.addEventListener('touchmove', schedule, opts);
-  window.addEventListener('touchend', schedule, opts);
-  window.addEventListener('resize', schedule, opts);
-  window.addEventListener('orientationchange', schedule, opts);
+  window.addEventListener('scroll', onScroll, opts);
+  document.addEventListener('scroll', onScroll, opts);
+  window.addEventListener('touchmove', onScroll, opts);
+  window.addEventListener('touchend', onScroll, opts);
+  window.addEventListener('resize', check, opts);
+  window.addEventListener('orientationchange', check, opts);
 
-  // iOS: layout não fica pronto no primeiro rAF — múltiplos checks iniciais
-  schedule();
+  requestAnimationFrame(check);
   requestAnimationFrame(() => requestAnimationFrame(check));
-  setTimeout(schedule, 100);
-  setTimeout(schedule, 500);
-  setTimeout(schedule, 1200);
-  setTimeout(schedule, 2200);
-  window.addEventListener('load', schedule, { once: true });
+  setTimeout(check, 100);
+  setTimeout(check, 500);
+  setTimeout(check, 1200);
+  window.addEventListener('load', check, { once: true });
 })();
 </script>
 </body>
