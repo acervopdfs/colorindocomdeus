@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Colorindo com Deus: atividade bíblica pronta para imprimir, colorir e transformar alguns minutos do dia em um momento com Deus.">
+<meta name="color-scheme" content="light">
 <title>Colorindo com Deus | Atividade bíblica para colorir</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,6 +14,7 @@
 
 <style>
 :root{
+  color-scheme:light;
   --blue:#2E4F8A;
   --blue-dark:#173461;
   --blue-soft:#DCEEFF;
@@ -167,7 +169,8 @@ a{color:inherit}
   left:-55%;
   width:42%;
   background:linear-gradient(115deg,transparent,rgba(255,255,255,.72),transparent);
-  transform:skewX(-18deg);
+  transform:translateX(0) skewX(-18deg);
+  will-change:transform;
   animation:goldShine 3.6s ease-in-out infinite;
   pointer-events:none;
 }
@@ -180,9 +183,9 @@ a{color:inherit}
   box-shadow:0 16px 34px rgba(216,155,22,.28), inset 0 -3px 0 rgba(216,155,22,.25);
 }
 @keyframes goldShine{
-  0%,42%{left:-55%;opacity:0}
-  52%{opacity:.9}
-  68%,100%{left:115%;opacity:0}
+  0%,42%{transform:translateX(0) skewX(-18deg);opacity:0}
+  52%{transform:translateX(200%) skewX(-18deg);opacity:.9}
+  68%,100%{transform:translateX(400%) skewX(-18deg);opacity:0}
 }
 
 /* HERO */
@@ -285,6 +288,7 @@ a{color:inherit}
   border-radius:34px;
   background:linear-gradient(180deg,rgba(255,255,255,.78),rgba(255,249,240,.88));
   box-shadow:0 28px 80px rgba(23,52,97,.25);
+  will-change:transform;
   animation:gentleFloat 5.4s ease-in-out infinite;
 }
 .hero-product-mobile{display:none}
@@ -309,6 +313,7 @@ a{color:inherit}
   height:34px;
   color:var(--gold);
   filter:drop-shadow(0 8px 12px rgba(216,155,22,.18));
+  will-change:transform,opacity;
   animation:sparklePulse 2.8s ease-in-out infinite;
 }
 .hero-sparkle svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
@@ -776,12 +781,14 @@ a{color:inherit}
 }
 
 /* SCROLL REVEAL */
-.reveal{
-  opacity:0;
-  transform:translateY(22px);
-  transition:opacity .55s cubic-bezier(.22,.61,.36,1),transform .55s cubic-bezier(.22,.61,.36,1);
+@keyframes revealUp{
+  from{opacity:0;transform:translateY(20px)}
+  to  {opacity:1;transform:translateY(0)}
 }
-.reveal.visible{opacity:1;transform:none}
+.reveal{opacity:0;transform:translateY(20px)}
+.reveal.visible{
+  animation:revealUp .52s cubic-bezier(.22,.61,.36,1) both;
+}
 
 /* GUARANTEE BADGE */
 .g-badge{
@@ -820,8 +827,8 @@ a{color:inherit}
 /* REDUCED MOTION */
 @media (prefers-reduced-motion:reduce){
   .cta:before,.hero-product,.hero-sparkle{animation:none}
-  .pain-card,.compare,.feature,.preview-item,.use-card,.early-card,.trust-item,.cta{transition:none}
-  .reveal{opacity:1;transform:none;transition:none}
+  .pain-card,.compare,.feature,.use-card,.trust-item,.inside-item{transition:none}
+  .reveal{animation:none;opacity:1;transform:none}
 }
 
 /* RESPONSIVE 920px */
@@ -1076,13 +1083,13 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
       <div class="preview-carousel-window">
         <div class="preview-track" data-preview-track>
           <figure class="preview-item">
-            <img src="adao-eva.jpg" alt="Página para colorir de Adão e Eva" width="320" height="426" loading="lazy">
+            <img src="adao-eva.png" alt="Página para colorir de Adão e Eva" width="320" height="426" loading="lazy">
           </figure>
           <figure class="preview-item">
-            <img src="arca-noe.jpg" alt="Página para colorir da Arca de Noé" width="320" height="426" loading="lazy">
+            <img src="arca-noe.png" alt="Página para colorir da Arca de Noé" width="320" height="426" loading="lazy">
           </figure>
           <figure class="preview-item">
-            <img src="moises-mar.jpg" alt="Página para colorir de Moisés e o Mar Vermelho" width="320" height="426" loading="lazy">
+            <img src="moises-mar.png" alt="Página para colorir de Moisés e o Mar Vermelho" width="320" height="426" loading="lazy">
           </figure>
           <figure class="preview-item">
             <img src="cova-leoes.jpg" alt="Página para colorir de Daniel na cova dos leões" width="320" height="426" loading="lazy">
@@ -1360,7 +1367,7 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   const reducedMotion = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
 
   const showAll = () => revealEls.forEach(el => {
-    el.style.transitionDelay = '';
+    el.style.animationDelay = '';
     el.classList.add('visible');
   });
 
@@ -1375,27 +1382,22 @@ document.querySelectorAll('.faq-q').forEach(btn => {
     const g = document.querySelector(sel);
     if (!g) return;
     [...g.querySelectorAll('.reveal')].forEach((el, i) => {
-      el.style.transitionDelay = (i * 85) + 'ms';
+      el.style.animationDelay = (i * 85) + 'ms';
     });
   });
 
   const reveal = el => {
     if (el.classList.contains('visible')) return;
     el.classList.add('visible');
-    el.addEventListener('transitionend', () => {
-      el.style.transitionDelay = '';
-    }, { once: true });
   };
 
-  // threshold:0 dispara assim que 1px fica visível — mais confiável no iOS
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { reveal(e.target); obs.unobserve(e.target); } });
   }, { rootMargin: '0px 0px -20px 0px', threshold: 0 });
 
   revealEls.forEach(el => obs.observe(el));
 
-  // Fallback iOS Safari: observer pode não disparar para elementos já visíveis
-  // Double rAF garante que o layout está completo antes de verificar
+  // Fallback: double rAF para elementos já visíveis no load
   requestAnimationFrame(() => requestAnimationFrame(() => {
     revealEls.forEach(el => {
       if (el.classList.contains('visible')) return;
@@ -1407,10 +1409,10 @@ document.querySelectorAll('.faq-q').forEach(btn => {
     });
   }));
 
-  // Safety net: 900ms após load, qualquer .reveal não revelado é desbloqueado
+  // Safety net: 900ms
   setTimeout(() => {
     document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
-      el.style.transitionDelay = '';
+      el.style.animationDelay = '';
       el.classList.add('visible');
     });
   }, 900);
