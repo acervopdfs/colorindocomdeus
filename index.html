@@ -783,11 +783,14 @@ a{color:inherit}
 /* SCROLL REVEAL */
 .reveal{
   opacity:0;
-  transform:translateY(18px);
-  transition:opacity .45s ease,transform .45s ease;
+  -webkit-transform:translateY(28px);
+  transform:translateY(28px);
+  -webkit-transition:opacity .6s ease-out,-webkit-transform .6s ease-out;
+  transition:opacity .6s ease-out,transform .6s ease-out;
 }
 .reveal.visible{
   opacity:1;
+  -webkit-transform:translateY(0);
   transform:translateY(0);
 }
 
@@ -1370,27 +1373,23 @@ document.querySelectorAll('.faq-q').forEach(btn => {
     return;
   }
 
-  let ticking = false;
-
   const check = () => {
     const vh = window.innerHeight;
     els.forEach(el => {
       const r = el.getBoundingClientRect();
-      el.classList.toggle('visible', r.top < vh - 20 && r.bottom > 20);
+      const inView = r.top < vh - 20 && r.bottom > 20;
+      if (inView) el.classList.add('visible');
+      else el.classList.remove('visible');
     });
-    ticking = false;
   };
 
-  const onScroll = () => {
-    if (!ticking) {
-      requestAnimationFrame(check);
-      ticking = true;
-    }
-  };
-
-  window.addEventListener('scroll',    onScroll, { passive: true });
-  window.addEventListener('touchmove', onScroll, { passive: true });
-  window.addEventListener('resize',    check,    { passive: true });
+  // scroll: Android + iOS momentum
+  // touchmove: durante o arrasto
+  // touchend: iOS dispara check ao soltar o dedo (início do momentum)
+  window.addEventListener('scroll',    check, { passive: true });
+  window.addEventListener('touchmove', check, { passive: true });
+  window.addEventListener('touchend',  check, { passive: true });
+  window.addEventListener('resize',    check, { passive: true });
   requestAnimationFrame(check);
 })();
 </script>
