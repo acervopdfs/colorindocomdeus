@@ -297,6 +297,8 @@ a{color:inherit}
   box-shadow:0 28px 80px rgba(23,52,97,.25);
   -webkit-backface-visibility:hidden;
   backface-visibility:hidden;
+  -webkit-animation:gentleFloat 5.4s ease-in-out infinite;
+  animation:gentleFloat 5.4s ease-in-out infinite;
 }
 .hero-product-mobile{display:none}
 .hero-product:before{
@@ -323,6 +325,14 @@ a{color:inherit}
 .hero-sparkle svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .hero-sparkle.one{right:-8px;top:24px}
 .hero-sparkle.two{left:-10px;bottom:46px;-webkit-animation-delay:1.2s;animation-delay:1.2s}
+@-webkit-keyframes gentleFloat{
+  0%,100%{-webkit-transform:translateY(0);transform:translateY(0)}
+  50%{-webkit-transform:translateY(-6px);transform:translateY(-6px)}
+}
+@keyframes gentleFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
+}
 @-webkit-keyframes sparklePulse{
   0%,100%{opacity:.55;-webkit-transform:scale(.92) rotate(0deg);transform:scale(.92) rotate(0deg)}
   50%{opacity:1;-webkit-transform:scale(1.08) rotate(8deg);transform:scale(1.08) rotate(8deg)}
@@ -786,16 +796,11 @@ a{color:inherit}
 
 /* SCROLL REVEAL */
 .reveal{
-  opacity:1;
-  -webkit-transform:translateY(0);
-  transform:translateY(0);
+  opacity:0;
+  -webkit-transform:translateY(28px);
+  transform:translateY(28px);
   -webkit-transition:opacity .6s ease-out,-webkit-transform .6s ease-out;
   transition:opacity .6s ease-out,transform .6s ease-out;
-}
-.js-animations .reveal{
-  opacity:0;
-  -webkit-transform:translateY(24px);
-  transform:translateY(24px);
 }
 .reveal.visible{
   opacity:1;
@@ -1390,24 +1395,8 @@ Array.prototype.slice.call(document.querySelectorAll('.faq-q')).forEach(function
 
 // Animacoes da pagina: hero float + scroll reveal.
 (function(){
-  document.documentElement.classList.add('js-animations');
-
   var raf = window.requestAnimationFrame || window.webkitRequestAnimationFrame || function(fn){ return setTimeout(fn, 16); };
   var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-
-  var productImages = Array.prototype.slice.call(document.querySelectorAll('.hero-product img'));
-  if (!prefersReduced && productImages.length) {
-    var start = Date.now();
-    var floatHero = function(){
-      var y = Math.sin((Date.now() - start) / 850) * 6;
-      productImages.forEach(function(img){
-        img.style.webkitTransform = 'translate3d(0,' + y + 'px,0)';
-        img.style.transform = 'translate3d(0,' + y + 'px,0)';
-      });
-      raf(floatHero);
-    };
-    raf(floatHero);
-  }
 
   var els = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
   if (!els.length) return;
