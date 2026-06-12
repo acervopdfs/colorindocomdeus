@@ -1310,6 +1310,14 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
 </footer>
 
 <script>
+function findParentByClass(el, className){
+  while (el && el !== document) {
+    if (el.classList && el.classList.contains(className)) return el;
+    el = el.parentNode;
+  }
+  return null;
+}
+
 // Carrossel de preview + swipe (iOS/Android)
 (function(){
   var track = document.querySelector('[data-preview-track]');
@@ -1328,7 +1336,10 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
     current = (idx + total) % total;
     track.style.webkitTransform = 'translateX(-' + (current * 100) + '%)';
     track.style.transform = 'translateX(-' + (current * 100) + '%)';
-    dots.forEach(function(d, i){ d.classList.toggle('active', i === current); });
+    dots.forEach(function(d, i){
+      if (i === current) d.classList.add('active');
+      else d.classList.remove('active');
+    });
     setTimeout(function(){ moving = false; }, 400);
   };
 
@@ -1363,7 +1374,8 @@ src="https://www.facebook.com/tr?id=2219503998858367&ev=PageView&noscript=1"
 // FAQ accordion
 Array.prototype.slice.call(document.querySelectorAll('.faq-q')).forEach(function(btn){
   btn.addEventListener('click', function(){
-    var item = btn.closest('.faq-item');
+    var item = findParentByClass(btn, 'faq-item');
+    if (!item) return;
     var isOpen = item.classList.contains('open');
     Array.prototype.slice.call(document.querySelectorAll('.faq-item.open')).forEach(function(el){
       el.classList.remove('open');
@@ -1380,7 +1392,8 @@ Array.prototype.slice.call(document.querySelectorAll('.faq-q')).forEach(function
 (function(){
   document.documentElement.classList.add('js-animations');
 
-  var prefersReduced = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var raf = window.requestAnimationFrame || window.webkitRequestAnimationFrame || function(fn){ return setTimeout(fn, 16); };
+  var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
 
   var productImages = Array.prototype.slice.call(document.querySelectorAll('.hero-product img'));
   if (!prefersReduced && productImages.length) {
@@ -1391,9 +1404,9 @@ Array.prototype.slice.call(document.querySelectorAll('.faq-q')).forEach(function
         img.style.webkitTransform = 'translate3d(0,' + y + 'px,0)';
         img.style.transform = 'translate3d(0,' + y + 'px,0)';
       });
-      window.requestAnimationFrame(floatHero);
+      raf(floatHero);
     };
-    window.requestAnimationFrame(floatHero);
+    raf(floatHero);
   }
 
   var els = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
@@ -1409,7 +1422,8 @@ Array.prototype.slice.call(document.querySelectorAll('.faq-q')).forEach(function
     els.forEach(function(el){
       var r = el.getBoundingClientRect();
       var inView = r.top < vh - 18 && r.bottom > 18;
-      el.classList.toggle('visible', inView);
+      if (inView) el.classList.add('visible');
+      else el.classList.remove('visible');
     });
   };
 
@@ -1417,7 +1431,7 @@ Array.prototype.slice.call(document.querySelectorAll('.faq-q')).forEach(function
   var onScroll = function(){
     if (ticking) return;
     ticking = true;
-    requestAnimationFrame(function(){
+    raf(function(){
       check();
       ticking = false;
     });
@@ -1431,8 +1445,8 @@ Array.prototype.slice.call(document.querySelectorAll('.faq-q')).forEach(function
   window.addEventListener('resize', check, opts);
   window.addEventListener('orientationchange', check, opts);
 
-  requestAnimationFrame(check);
-  requestAnimationFrame(function(){ requestAnimationFrame(check); });
+  raf(check);
+  raf(function(){ raf(check); });
   setTimeout(check, 100);
   setTimeout(check, 500);
   setTimeout(check, 1200);
